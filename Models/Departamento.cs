@@ -13,7 +13,7 @@ namespace Ejecuciones.Models
     {
         [Key]
         public int DepartamentoId { get; set; }
-        [StringLength(2)]
+        [StringLength(2,ErrorMessage ="2 caracteres numéricos")]
         [Required(ErrorMessage = "Código Requerido")]
         [Display(Name = "Codigo Departamento:")]
         public string CodigoDepartamento { get; set; }

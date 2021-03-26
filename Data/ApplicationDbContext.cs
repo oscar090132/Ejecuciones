@@ -17,6 +17,7 @@ namespace Ejecuciones.Data
         {
             modelBuilder.Entity<Departamento>().Property(k => k.DepartamentoId).UseIdentityAlwaysColumn();
             modelBuilder.Entity<Municipio>().Property(k => k.MunicipioId).UseIdentityAlwaysColumn();
+            modelBuilder.Entity<Despacho>().Property(k => k.DespachoId).UseIdentityAlwaysColumn();
 
             base.OnModelCreating(modelBuilder);
         }

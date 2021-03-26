@@ -14,7 +14,7 @@ namespace Ejecuciones.Models
         [Key]
         public int MunicipioId { get; set; }
                 
-        [StringLength(5,ErrorMessage ="Longitud máxima 3")]
+        [StringLength(5,ErrorMessage ="Longitud máxima 5")]
         [Required]
         public string CodigoMunicipio { get; set; }
         public string Nombre { get; set; }
