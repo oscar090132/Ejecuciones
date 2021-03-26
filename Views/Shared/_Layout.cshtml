@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background-color: #236093 !important;">
             <div class="container" style="color:white !important;">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CSA de JEPMS Manizales</a>
                 <button class="navbar-toggler"  type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -19,6 +19,26 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Datos Maestros
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a style="background-color:floralwhite !important;" class="nav-link text-black-50" asp-area="" asp-controller="Departamentos" asp-action="Index">Departamentos</a>
+                                <a style="background-color:floralwhite !important;" class="nav-link text-black-50" asp-area="" asp-controller="Home" asp-action="Index">Despachos</a>
+                                <a style="background-color:floralwhite !important;" class="nav-link text-black-50" asp-area="" asp-controller="Home" asp-action="Index">Estados Proceso</a>
+                                <a style="background-color:floralwhite !important;" class="nav-link text-black-50" asp-area="" asp-controller="Home" asp-action="Index">Estados Solicitud</a>
+                                <a style="background-color:floralwhite !important;" class="nav-link text-black-50" asp-area="" asp-controller="Home" asp-action="Index">Falladores</a>
+                                <a style="background-color:floralwhite !important;" class="nav-link text-black-50" asp-area="" asp-controller="Home" asp-action="Index">Municipios</a>
+                                <a style="background-color:floralwhite !important;" class="nav-link text-black-50" asp-area="" asp-controller="Home" asp-action="Index">Tipos Solicitud</a>
+                                <a style="background-color:floralwhite !important;" class="nav-link text-black-50" asp-area="" asp-controller="Home" asp-action="Index">Usuarios y Roles</a>
+                                
+                            </div>
+                        </li>
+
+
+
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
