@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Ejecuciones.Migrations
 {
-    public partial class DepartamentosMunicipios : Migration
+    public partial class Inicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -51,12 +51,14 @@ namespace Ejecuciones.Migrations
                 name: "departamentos",
                 columns: table => new
                 {
+                    DepartamentoId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityAlwaysColumn),
                     CodigoDepartamento = table.Column<string>(type: "character varying(2)", maxLength: 2, nullable: false),
                     Nombre = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_departamentos", x => x.CodigoDepartamento);
+                    table.PrimaryKey("PK_departamentos", x => x.DepartamentoId);
                 });
 
             migrationBuilder.CreateTable(
@@ -169,20 +171,21 @@ namespace Ejecuciones.Migrations
                 name: "municipios",
                 columns: table => new
                 {
-                    CodigoMunicipio = table.Column<string>(type: "character varying(3)", maxLength: 3, nullable: false),
-                    CodigoDepartamento = table.Column<string>(type: "text", nullable: false),
-                    DepartamentoCodigoDepartamento = table.Column<string>(type: "character varying(2)", nullable: true),
-                    Nombre = table.Column<string>(type: "text", nullable: true)
+                    MunicipioId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityAlwaysColumn),
+                    CodigoMunicipio = table.Column<string>(type: "character varying(5)", maxLength: 5, nullable: false),
+                    Nombre = table.Column<string>(type: "text", nullable: true),
+                    DepartamentoId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_municipios", x => new { x.CodigoDepartamento, x.CodigoMunicipio });
+                    table.PrimaryKey("PK_municipios", x => x.MunicipioId);
                     table.ForeignKey(
-                        name: "FK_municipios_departamentos_DepartamentoCodigoDepartamento",
-                        column: x => x.DepartamentoCodigoDepartamento,
+                        name: "FK_municipios_departamentos_DepartamentoId",
+                        column: x => x.DepartamentoId,
                         principalTable: "departamentos",
-                        principalColumn: "CodigoDepartamento",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "DepartamentoId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -223,9 +226,9 @@ namespace Ejecuciones.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_municipios_DepartamentoCodigoDepartamento",
+                name: "IX_municipios_DepartamentoId",
                 table: "municipios",
-                column: "DepartamentoCodigoDepartamento");
+                column: "DepartamentoId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

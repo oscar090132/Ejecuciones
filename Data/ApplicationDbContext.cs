@@ -15,8 +15,8 @@ namespace Ejecuciones.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Departamento>().HasKey(k => new { k.CodigoDepartamento});
-            modelBuilder.Entity<Municipio>().HasKey(k => new { k.CodigoDepartamento, k.CodigoMunicipio });
+            modelBuilder.Entity<Departamento>().Property(k => k.DepartamentoId).UseIdentityAlwaysColumn();
+            modelBuilder.Entity<Municipio>().Property(k => k.MunicipioId).UseIdentityAlwaysColumn();
 
             base.OnModelCreating(modelBuilder);
         }

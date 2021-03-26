@@ -12,6 +12,7 @@ namespace Ejecuciones.Models
     public class Departamento : IValidatableObject
     {
         [Key]
+        public int DepartamentoId { get; set; }
         [StringLength(2)]
         [Required(ErrorMessage = "Código Requerido")]
         [Display(Name = "Codigo Departamento:")]
@@ -20,7 +21,7 @@ namespace Ejecuciones.Models
         [Required(ErrorMessage="Nombre Requerido")]
         [Display(Name = "Nombre Departamento:")]
         public string Nombre { get; set; }
-        public List<Municipio> Municipios { get; set; }
+        public virtual ICollection<Municipio> Municipios { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {

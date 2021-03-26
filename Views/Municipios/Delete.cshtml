@@ -1,4 +1,4 @@
-﻿@model Ejecuciones.Models.Departamento
+﻿@model Ejecuciones.Models.Municipio
 
 @{
     ViewData["Title"] = "Eliminar";
@@ -9,14 +9,14 @@
 
 <h3>¿Confirma que desea eliminar el siguiente elemento?</h3>
 <div>
-    <h4>Departamento</h4>
+    <h4>Municipio</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CodigoDepartamento)
+            @Html.DisplayNameFor(model => model.CodigoMunicipio)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CodigoDepartamento)
+            @Html.DisplayFor(model => model.CodigoMunicipio)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Nombre)
@@ -24,11 +24,17 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Nombre)
         </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Departamento)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Departamento.CodigoDepartamento)
+        </dd class>
     </dl>
     
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="DepartamentoId" />
-        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+    <form asp-action="Eliminar">
+        <input type="hidden" asp-for="MunicipioId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Volver a la Lista</a>
     </form>
 </div>

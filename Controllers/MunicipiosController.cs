@@ -10,22 +10,23 @@ using Ejecuciones.Models;
 
 namespace Ejecuciones.Controllers
 {
-    public class DepartamentosController : Controller
+    public class MunicipiosController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public DepartamentosController(ApplicationDbContext context)
+        public MunicipiosController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Departamentos
+        // GET: Municipios
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Departamentos.ToListAsync());
+            var applicationDbContext = _context.Municipios.Include(m => m.Departamento);
+            return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Departamentos/Details/5
+        // GET: Municipios/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +34,42 @@ namespace Ejecuciones.Controllers
                 return NotFound();
             }
 
-            var departamento = await _context.Departamentos
-                .FirstOrDefaultAsync(m => m.DepartamentoId == id);
-            if (departamento == null)
+            var municipio = await _context.Municipios
+                .Include(m => m.Departamento)
+                .FirstOrDefaultAsync(m => m.MunicipioId == id);
+            if (municipio == null)
             {
                 return NotFound();
             }
 
-            return View(departamento);
+            return View(municipio);
         }
 
-        // GET: Departamentos/Create
+        // GET: Municipios/Create
         public IActionResult Create()
         {
+            ViewData["DepartamentoId"] = new SelectList(_context.Departamentos, "DepartamentoId", "Nombre");
             return View();
         }
 
-        // POST: Departamentos/Create
+        // POST: Municipios/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DepartamentoId,CodigoDepartamento,Nombre")] Departamento departamento)
+        public async Task<IActionResult> Create([Bind("MunicipioId,CodigoMunicipio,Nombre,DepartamentoId")] Municipio municipio)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(departamento);
+                _context.Add(municipio);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(departamento);
+            ViewData["DepartamentoId"] = new SelectList(_context.Departamentos, "DepartamentoId", "CodigoDepartamento", municipio.DepartamentoId);
+            return View(municipio);
         }
 
-        // GET: Departamentos/Edit/5
+        // GET: Municipios/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +77,23 @@ namespace Ejecuciones.Controllers
                 return NotFound();
             }
 
-            var departamento = await _context.Departamentos.FindAsync(id);
-            if (departamento == null)
+            var municipio = await _context.Municipios.FindAsync(id);
+            if (municipio == null)
             {
                 return NotFound();
             }
-            return View(departamento);
+            ViewData["DepartamentoId"] = new SelectList(_context.Departamentos, "DepartamentoId", "CodigoDepartamento", municipio.DepartamentoId);
+            return View(municipio);
         }
 
-        // POST: Departamentos/Edit/5
+        // POST: Municipios/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("DepartamentoId,CodigoDepartamento,Nombre")] Departamento departamento)
+        public async Task<IActionResult> Edit(int id, [Bind("MunicipioId,CodigoMunicipio,Nombre,DepartamentoId")] Municipio municipio)
         {
-            if (id != departamento.DepartamentoId)
+            if (id != municipio.MunicipioId)
             {
                 return NotFound();
             }
@@ -97,12 +102,12 @@ namespace Ejecuciones.Controllers
             {
                 try
                 {
-                    _context.Update(departamento);
+                    _context.Update(municipio);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!DepartamentoExists(departamento.DepartamentoId))
+                    if (!MunicipioExists(municipio.MunicipioId))
                     {
                         return NotFound();
                     }
@@ -113,10 +118,11 @@ namespace Ejecuciones.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(departamento);
+            ViewData["DepartamentoId"] = new SelectList(_context.Departamentos, "DepartamentoId", "CodigoDepartamento", municipio.DepartamentoId);
+            return View(municipio);
         }
 
-        // GET: Departamentos/Delete/5
+        // GET: Municipios/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +130,31 @@ namespace Ejecuciones.Controllers
                 return NotFound();
             }
 
-            var departamento = await _context.Departamentos
-                .FirstOrDefaultAsync(m => m.DepartamentoId == id);
-            if (departamento == null)
+            var municipio = await _context.Municipios
+                .Include(m => m.Departamento)
+                .FirstOrDefaultAsync(m => m.MunicipioId == id);
+            if (municipio == null)
             {
                 return NotFound();
             }
 
-            return View(departamento);
+            return View(municipio);
         }
 
-        // POST: Departamentos/Delete/5
+        // POST: Municipios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var departamento = await _context.Departamentos.FindAsync(id);
-            _context.Departamentos.Remove(departamento);
+            var municipio = await _context.Municipios.FindAsync(id);
+            _context.Municipios.Remove(municipio);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool DepartamentoExists(int id)
+        private bool MunicipioExists(int id)
         {
-            return _context.Departamentos.Any(e => e.DepartamentoId == id);
+            return _context.Municipios.Any(e => e.MunicipioId == id);
         }
     }
 }

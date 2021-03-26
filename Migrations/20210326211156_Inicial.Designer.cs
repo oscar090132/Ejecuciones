@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Ejecuciones.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210326193512_DepartamentosMunicipios")]
-    partial class DepartamentosMunicipios
+    [Migration("20210326211156_Inicial")]
+    partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,7 +23,13 @@ namespace Ejecuciones.Migrations
 
             modelBuilder.Entity("Ejecuciones.Models.Departamento", b =>
                 {
+                    b.Property<int>("DepartamentoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityAlwaysColumn);
+
                     b.Property<string>("CodigoDepartamento")
+                        .IsRequired()
                         .HasMaxLength(2)
                         .HasColumnType("character varying(2)");
 
@@ -32,29 +38,32 @@ namespace Ejecuciones.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("character varying(30)");
 
-                    b.HasKey("CodigoDepartamento");
+                    b.HasKey("DepartamentoId");
 
                     b.ToTable("departamentos");
                 });
 
             modelBuilder.Entity("Ejecuciones.Models.Municipio", b =>
                 {
-                    b.Property<string>("CodigoDepartamento")
-                        .HasColumnType("text");
+                    b.Property<int>("MunicipioId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityAlwaysColumn);
 
                     b.Property<string>("CodigoMunicipio")
-                        .HasMaxLength(3)
-                        .HasColumnType("character varying(3)");
+                        .IsRequired()
+                        .HasMaxLength(5)
+                        .HasColumnType("character varying(5)");
 
-                    b.Property<string>("DepartamentoCodigoDepartamento")
-                        .HasColumnType("character varying(2)");
+                    b.Property<int>("DepartamentoId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Nombre")
                         .HasColumnType("text");
 
-                    b.HasKey("CodigoDepartamento", "CodigoMunicipio");
+                    b.HasKey("MunicipioId");
 
-                    b.HasIndex("DepartamentoCodigoDepartamento");
+                    b.HasIndex("DepartamentoId");
 
                     b.ToTable("municipios");
                 });
@@ -261,7 +270,9 @@ namespace Ejecuciones.Migrations
                 {
                     b.HasOne("Ejecuciones.Models.Departamento", "Departamento")
                         .WithMany("Municipios")
-                        .HasForeignKey("DepartamentoCodigoDepartamento");
+                        .HasForeignKey("DepartamentoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Departamento");
                 });
