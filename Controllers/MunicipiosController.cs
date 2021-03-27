@@ -48,7 +48,7 @@ namespace Ejecuciones.Controllers
         // GET: Municipios/Create
         public IActionResult Create()
         {
-            ViewData["DepartamentoId"] = new SelectList(_context.Departamentos, "DepartamentoId", "Nombre");
+            ViewData["DepartamentoId"] = new SelectList(_context.Departamentos, "DepartamentoId", "NombreDepartamento");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace Ejecuciones.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MunicipioId,CodigoMunicipio,Nombre,DepartamentoId")] Municipio municipio)
+        public async Task<IActionResult> Create([Bind("MunicipioId,CodigoMunicipio,NombreMunicipio,DepartamentoId")] Municipio municipio)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace Ejecuciones.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("MunicipioId,CodigoMunicipio,Nombre,DepartamentoId")] Municipio municipio)
+        public async Task<IActionResult> Edit(int id, [Bind("MunicipioId,CodigoMunicipio,NombreMunicipio,DepartamentoId")] Municipio municipio)
         {
             if (id != municipio.MunicipioId)
             {

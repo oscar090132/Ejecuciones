@@ -13,16 +13,18 @@ namespace Ejecuciones.Models
     {
         [Key]
         public int DepartamentoId { get; set; }
+        
         [StringLength(2,ErrorMessage ="2 caracteres numéricos")]
         [Required(ErrorMessage = "Código Requerido")]
         [Display(Name = "Codigo Departamento:")]
         public string CodigoDepartamento { get; set; }
-        [MaxLength(30)]
+        
+        [StringLength(30, ErrorMessage = "30 caracteres máximo")]
         [Required(ErrorMessage="Nombre Requerido")]
         [Display(Name = "Nombre Departamento:")]
-        public string Nombre { get; set; }
+        public string NombreDepartamento { get; set; }
+        
         public virtual ICollection<Municipio> Municipios { get; set; }
-
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             Regex reg = new Regex("[0-9]"); //Expresión que solo acepta números.
@@ -35,7 +37,6 @@ namespace Ejecuciones.Models
             {
                 yield return new ValidationResult("El código deben ser dos carateres numericos", new string[] { nameof(CodigoDepartamento) });
             }
-
         }
     }
 }

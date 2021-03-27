@@ -13,16 +13,20 @@ namespace Ejecuciones.Models
     {
         [Key]
         public int MunicipioId { get; set; }
-                
-        [StringLength(5,ErrorMessage ="Longitud máxima 5")]
+        
+        [StringLength(3,ErrorMessage ="3 caracteres numéricos")]
         [Required]
+        [Display(Name = "Codigo Municipio:")]
         public string CodigoMunicipio { get; set; }
-        public string Nombre { get; set; }
-
+        
+        [StringLength(30, ErrorMessage = "30 caracteres máximo")]
+        [Required(ErrorMessage = "Nombre Requerido")]
+        [Display(Name = "Nombre Municipio:")]
+        public string NombreMunicipio { get; set; }
 
         public int DepartamentoId { get; set; }
+        
         public virtual Departamento Departamento { get; set; }
-
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
@@ -30,15 +34,12 @@ namespace Ejecuciones.Models
 
             if (!reg.IsMatch(CodigoMunicipio))
             {
-                yield return new ValidationResult("El código deben ser dos carateres numericos", new string[] { nameof(CodigoMunicipio) });
+                yield return new ValidationResult("El código deben ser tres carateres numéricos", new string[] { nameof(CodigoMunicipio) });
             }
-            if (CodigoMunicipio.Trim().Length != 5)
+            if (CodigoMunicipio.Trim().Length != 3)
             {
-                yield return new ValidationResult("El código deben ser dos carateres numericos", new string[] { nameof(CodigoMunicipio) });
+                yield return new ValidationResult("El código deben ser tres carateres numericos", new string[] { nameof(CodigoMunicipio) });
             }
-
         }
     }
-    
-    
 }

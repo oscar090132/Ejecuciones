@@ -18,6 +18,14 @@ namespace Ejecuciones.Data
             modelBuilder.Entity<Departamento>().Property(k => k.DepartamentoId).UseIdentityAlwaysColumn();
             modelBuilder.Entity<Municipio>().Property(k => k.MunicipioId).UseIdentityAlwaysColumn();
             modelBuilder.Entity<Despacho>().Property(k => k.DespachoId).UseIdentityAlwaysColumn();
+            modelBuilder.Entity<TipoSolicitud>().Property(k => k.TipoSolicitudId).UseIdentityAlwaysColumn();
+            modelBuilder.Entity<Fallador>().Property(k => k.FalladorId).UseIdentityAlwaysColumn();
+            modelBuilder.Entity<EstadoSolicitud>().Property(k => k.EstadoSolicitudId).UseIdentityAlwaysColumn();
+            modelBuilder.Entity<EstadoProceso>().Property(k => k.EstadoProcesoId).UseIdentityAlwaysColumn();
+            modelBuilder.Entity<Funcionario>().Property(k => k.FuncionarioId).UseIdentityAlwaysColumn();
+            modelBuilder.Entity<Solicitud>().Property(k => k.SolicitudId).UseIdentityAlwaysColumn();
+            modelBuilder.Entity<Proceso>().Property(k => k.ProcesoId).UseIdentityAlwaysColumn();
+            modelBuilder.Entity<CargoEmpleado>().Property(k => k.CargoId).UseIdentityAlwaysColumn();
 
             base.OnModelCreating(modelBuilder);
         }

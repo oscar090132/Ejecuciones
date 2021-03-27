@@ -1,11 +1,11 @@
 ﻿@model Ejecuciones.Models.Municipio
 
 @{
-    ViewData["Title"] = "Editar";
+    ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Editar</h1>
+<h1>Edit</h1>
 
 <h4>Municipio</h4>
 <hr />
@@ -20,9 +20,9 @@
                 <span asp-validation-for="CodigoMunicipio" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Nombre" class="control-label"></label>
-                <input asp-for="Nombre" class="form-control" />
-                <span asp-validation-for="Nombre" class="text-danger"></span>
+                <label asp-for="NombreMunicipio" class="control-label"></label>
+                <input asp-for="NombreMunicipio" class="form-control" />
+                <span asp-validation-for="NombreMunicipio" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="DepartamentoId" class="control-label"></label>
@@ -30,14 +30,14 @@
                 <span asp-validation-for="DepartamentoId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Guardar" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Volver a la Lista</a>
+    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

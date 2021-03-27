@@ -54,7 +54,7 @@ namespace Ejecuciones.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DepartamentoId,CodigoDepartamento,Nombre")] Departamento departamento)
+        public async Task<IActionResult> Create([Bind("DepartamentoId,CodigoDepartamento,NombreDepartamento")] Departamento departamento)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace Ejecuciones.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("DepartamentoId,CodigoDepartamento,Nombre")] Departamento departamento)
+        public async Task<IActionResult> Edit(int id, [Bind("DepartamentoId,CodigoDepartamento,NombreDepartamento")] Departamento departamento)
         {
             if (id != departamento.DepartamentoId)
             {
