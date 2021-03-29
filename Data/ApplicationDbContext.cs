@@ -31,5 +31,14 @@ namespace Ejecuciones.Data
         }
         public DbSet<Departamento> Departamentos { get; set; }
         public DbSet<Municipio> Municipios { get; set; }
+        public DbSet<Ejecuciones.Models.TipoSolicitud> TipoSolicitud { get; set; }
+        public DbSet<Ejecuciones.Models.CargoEmpleado> CargoEmpleado { get; set; }
+        public DbSet<Ejecuciones.Models.Despacho> Despacho { get; set; }
+        public DbSet<Ejecuciones.Models.EstadoProceso> EstadoProceso { get; set; }
+        public DbSet<Ejecuciones.Models.EstadoSolicitud> EstadoSolicitud { get; set; }
+        public DbSet<Ejecuciones.Models.Fallador> Fallador { get; set; }
+        public DbSet<Ejecuciones.Models.Funcionario> Funcionario { get; set; }
+        public DbSet<Ejecuciones.Models.Proceso> Proceso { get; set; }
+        public DbSet<Ejecuciones.Models.Solicitud> Solicitud { get; set; }
     }
 }

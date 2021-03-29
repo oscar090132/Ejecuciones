@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Ejecuciones.Models.EstadoProceso>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreEstadoProceso)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreEstadoProceso)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.EstadoProcesoId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.EstadoProcesoId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.EstadoProcesoId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

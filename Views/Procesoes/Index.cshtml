@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Ejecuciones.Models.Proceso>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaProceso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RadicadoProceso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnexosSolicitud)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CuadernosProceso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FoliosProceso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Despacho)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fallador)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstadoProceso)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaProceso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RadicadoProceso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnexosSolicitud)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CuadernosProceso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoliosProceso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Despacho.NombreDespacho)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fallador.JuzgadoFallador)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstadoProceso.NombreEstadoProceso)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProcesoId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ProcesoId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProcesoId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

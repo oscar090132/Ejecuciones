@@ -1,0 +1,67 @@
+﻿@model Ejecuciones.Models.Proceso
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Proceso</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaProceso)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaProceso)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RadicadoProceso)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RadicadoProceso)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AnexosSolicitud)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AnexosSolicitud)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CuadernosProceso)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CuadernosProceso)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FoliosProceso)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FoliosProceso)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Despacho)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Despacho.NombreDespacho)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fallador)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fallador.JuzgadoFallador)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EstadoProceso)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EstadoProceso.NombreEstadoProceso)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ProcesoId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\EstadoSolicituds1Controller.cs" />
     <Compile Remove="Models\ErrorViewMode1.cs" />
   </ItemGroup>
 
