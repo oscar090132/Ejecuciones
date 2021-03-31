@@ -10,22 +10,22 @@ using Ejecuciones.Models;
 
 namespace Ejecuciones.Controllers
 {
-    public class EstadoSolicitudsController : Controller
+    public class EstadoProcesosController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public EstadoSolicitudsController(ApplicationDbContext context)
+        public EstadoProcesosController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: EstadoSolicituds
+        // GET: EstadoProcesos
         public async Task<IActionResult> Index()
         {
-            return View(await _context.EstadoSolicitud.ToListAsync());
+            return View(await _context.EstadoProceso.ToListAsync());
         }
 
-        // GET: EstadoSolicituds/Details/5
+        // GET: EstadoProcesos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace Ejecuciones.Controllers
                 return NotFound();
             }
 
-            var estadoSolicitud = await _context.EstadoSolicitud
-                .FirstOrDefaultAsync(m => m.EstadoSolicitudId == id);
-            if (estadoSolicitud == null)
+            var estadoProceso = await _context.EstadoProceso
+                .FirstOrDefaultAsync(m => m.EstadoProcesoId == id);
+            if (estadoProceso == null)
             {
                 return NotFound();
             }
 
-            return View(estadoSolicitud);
+            return View(estadoProceso);
         }
 
-        // GET: EstadoSolicituds/Create
+        // GET: EstadoProcesos/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: EstadoSolicituds/Create
+        // POST: EstadoProcesos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EstadoSolicitudId,NombreEstadoSolicitud")] EstadoSolicitud estadoSolicitud)
+        public async Task<IActionResult> Create([Bind("EstadoProcesoId,NombreEstadoProceso")] EstadoProceso estadoProceso)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(estadoSolicitud);
+                _context.Add(estadoProceso);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(estadoSolicitud);
+            return View(estadoProceso);
         }
 
-        // GET: EstadoSolicituds/Edit/5
+        // GET: EstadoProcesos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace Ejecuciones.Controllers
                 return NotFound();
             }
 
-            var estadoSolicitud = await _context.EstadoSolicitud.FindAsync(id);
-            if (estadoSolicitud == null)
+            var estadoProceso = await _context.EstadoProceso.FindAsync(id);
+            if (estadoProceso == null)
             {
                 return NotFound();
             }
-            return View(estadoSolicitud);
+            return View(estadoProceso);
         }
 
-        // POST: EstadoSolicituds/Edit/5
+        // POST: EstadoProcesos/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("EstadoSolicitudId,NombreEstadoSolicitud")] EstadoSolicitud estadoSolicitud)
+        public async Task<IActionResult> Edit(int id, [Bind("EstadoProcesoId,NombreEstadoProceso")] EstadoProceso estadoProceso)
         {
-            if (id != estadoSolicitud.EstadoSolicitudId)
+            if (id != estadoProceso.EstadoProcesoId)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace Ejecuciones.Controllers
             {
                 try
                 {
-                    _context.Update(estadoSolicitud);
+                    _context.Update(estadoProceso);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EstadoSolicitudExists(estadoSolicitud.EstadoSolicitudId))
+                    if (!EstadoProcesoExists(estadoProceso.EstadoProcesoId))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace Ejecuciones.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(estadoSolicitud);
+            return View(estadoProceso);
         }
 
-        // GET: EstadoSolicituds/Delete/5
+        // GET: EstadoProcesos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +124,30 @@ namespace Ejecuciones.Controllers
                 return NotFound();
             }
 
-            var estadoSolicitud = await _context.EstadoSolicitud
-                .FirstOrDefaultAsync(m => m.EstadoSolicitudId == id);
-            if (estadoSolicitud == null)
+            var estadoProceso = await _context.EstadoProceso
+                .FirstOrDefaultAsync(m => m.EstadoProcesoId == id);
+            if (estadoProceso == null)
             {
                 return NotFound();
             }
 
-            return View(estadoSolicitud);
+            return View(estadoProceso);
         }
 
-        // POST: EstadoSolicituds/Delete/5
+        // POST: EstadoProcesos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var estadoSolicitud = await _context.EstadoSolicitud.FindAsync(id);
-            _context.EstadoSolicitud.Remove(estadoSolicitud);
+            var estadoProceso = await _context.EstadoProceso.FindAsync(id);
+            _context.EstadoProceso.Remove(estadoProceso);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool EstadoSolicitudExists(int id)
+        private bool EstadoProcesoExists(int id)
         {
-            return _context.EstadoSolicitud.Any(e => e.EstadoSolicitudId == id);
+            return _context.EstadoProceso.Any(e => e.EstadoProcesoId == id);
         }
     }
 }

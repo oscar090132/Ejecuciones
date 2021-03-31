@@ -10,22 +10,22 @@ using Ejecuciones.Models;
 
 namespace Ejecuciones.Controllers
 {
-    public class EstadoProcesoesController : Controller
+    public class DespachosController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public EstadoProcesoesController(ApplicationDbContext context)
+        public DespachosController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: EstadoProcesoes
+        // GET: Despachos
         public async Task<IActionResult> Index()
         {
-            return View(await _context.EstadoProceso.ToListAsync());
+            return View(await _context.Despacho.ToListAsync());
         }
 
-        // GET: EstadoProcesoes/Details/5
+        // GET: Despachos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace Ejecuciones.Controllers
                 return NotFound();
             }
 
-            var estadoProceso = await _context.EstadoProceso
-                .FirstOrDefaultAsync(m => m.EstadoProcesoId == id);
-            if (estadoProceso == null)
+            var despacho = await _context.Despacho
+                .FirstOrDefaultAsync(m => m.DespachoId == id);
+            if (despacho == null)
             {
                 return NotFound();
             }
 
-            return View(estadoProceso);
+            return View(despacho);
         }
 
-        // GET: EstadoProcesoes/Create
+        // GET: Despachos/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: EstadoProcesoes/Create
+        // POST: Despachos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EstadoProcesoId,NombreEstadoProceso")] EstadoProceso estadoProceso)
+        public async Task<IActionResult> Create([Bind("DespachoId,NombreDespacho")] Despacho despacho)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(estadoProceso);
+                _context.Add(despacho);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(estadoProceso);
+            return View(despacho);
         }
 
-        // GET: EstadoProcesoes/Edit/5
+        // GET: Despachos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace Ejecuciones.Controllers
                 return NotFound();
             }
 
-            var estadoProceso = await _context.EstadoProceso.FindAsync(id);
-            if (estadoProceso == null)
+            var despacho = await _context.Despacho.FindAsync(id);
+            if (despacho == null)
             {
                 return NotFound();
             }
-            return View(estadoProceso);
+            return View(despacho);
         }
 
-        // POST: EstadoProcesoes/Edit/5
+        // POST: Despachos/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("EstadoProcesoId,NombreEstadoProceso")] EstadoProceso estadoProceso)
+        public async Task<IActionResult> Edit(int id, [Bind("DespachoId,NombreDespacho")] Despacho despacho)
         {
-            if (id != estadoProceso.EstadoProcesoId)
+            if (id != despacho.DespachoId)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace Ejecuciones.Controllers
             {
                 try
                 {
-                    _context.Update(estadoProceso);
+                    _context.Update(despacho);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EstadoProcesoExists(estadoProceso.EstadoProcesoId))
+                    if (!DespachoExists(despacho.DespachoId))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace Ejecuciones.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(estadoProceso);
+            return View(despacho);
         }
 
-        // GET: EstadoProcesoes/Delete/5
+        // GET: Despachos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +124,30 @@ namespace Ejecuciones.Controllers
                 return NotFound();
             }
 
-            var estadoProceso = await _context.EstadoProceso
-                .FirstOrDefaultAsync(m => m.EstadoProcesoId == id);
-            if (estadoProceso == null)
+            var despacho = await _context.Despacho
+                .FirstOrDefaultAsync(m => m.DespachoId == id);
+            if (despacho == null)
             {
                 return NotFound();
             }
 
-            return View(estadoProceso);
+            return View(despacho);
         }
 
-        // POST: EstadoProcesoes/Delete/5
+        // POST: Despachos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var estadoProceso = await _context.EstadoProceso.FindAsync(id);
-            _context.EstadoProceso.Remove(estadoProceso);
+            var despacho = await _context.Despacho.FindAsync(id);
+            _context.Despacho.Remove(despacho);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool EstadoProcesoExists(int id)
+        private bool DespachoExists(int id)
         {
-            return _context.EstadoProceso.Any(e => e.EstadoProcesoId == id);
+            return _context.Despacho.Any(e => e.DespachoId == id);
         }
     }
 }

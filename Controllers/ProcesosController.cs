@@ -10,23 +10,23 @@ using Ejecuciones.Models;
 
 namespace Ejecuciones.Controllers
 {
-    public class ProcesoesController : Controller
+    public class ProcesosController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public ProcesoesController(ApplicationDbContext context)
+        public ProcesosController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Procesoes
+        // GET: Procesos
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Proceso.Include(p => p.Despacho).Include(p => p.EstadoProceso).Include(p => p.Fallador);
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Procesoes/Details/5
+        // GET: Procesos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -47,7 +47,7 @@ namespace Ejecuciones.Controllers
             return View(proceso);
         }
 
-        // GET: Procesoes/Create
+        // GET: Procesos/Create
         public IActionResult Create()
         {
             ViewData["DespachoId"] = new SelectList(_context.Despacho, "DespachoId", "NombreDespacho");
@@ -56,7 +56,7 @@ namespace Ejecuciones.Controllers
             return View();
         }
 
-        // POST: Procesoes/Create
+        // POST: Procesos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -75,7 +75,7 @@ namespace Ejecuciones.Controllers
             return View(proceso);
         }
 
-        // GET: Procesoes/Edit/5
+        // GET: Procesos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -94,7 +94,7 @@ namespace Ejecuciones.Controllers
             return View(proceso);
         }
 
-        // POST: Procesoes/Edit/5
+        // POST: Procesos/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -132,7 +132,7 @@ namespace Ejecuciones.Controllers
             return View(proceso);
         }
 
-        // GET: Procesoes/Delete/5
+        // GET: Procesos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -153,7 +153,7 @@ namespace Ejecuciones.Controllers
             return View(proceso);
         }
 
-        // POST: Procesoes/Delete/5
+        // POST: Procesos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

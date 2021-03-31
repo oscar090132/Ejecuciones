@@ -10,23 +10,23 @@ using Ejecuciones.Models;
 
 namespace Ejecuciones.Controllers
 {
-    public class FalladorsController : Controller
+    public class FalladoresController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public FalladorsController(ApplicationDbContext context)
+        public FalladoresController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Falladors
+        // GET: Falladores
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Fallador.Include(f => f.Departamento).Include(f => f.Municipio);
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Falladors/Details/5
+        // GET: Falladores/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -46,7 +46,7 @@ namespace Ejecuciones.Controllers
             return View(fallador);
         }
 
-        // GET: Falladors/Create
+        // GET: Falladores/Create
         public IActionResult Create()
         {
             ViewData["DepartamentoId"] = new SelectList(_context.Departamentos, "DepartamentoId", "CodigoDepartamento");
@@ -54,7 +54,7 @@ namespace Ejecuciones.Controllers
             return View();
         }
 
-        // POST: Falladors/Create
+        // POST: Falladores/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -72,7 +72,7 @@ namespace Ejecuciones.Controllers
             return View(fallador);
         }
 
-        // GET: Falladors/Edit/5
+        // GET: Falladores/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -90,7 +90,7 @@ namespace Ejecuciones.Controllers
             return View(fallador);
         }
 
-        // POST: Falladors/Edit/5
+        // POST: Falladores/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -127,7 +127,7 @@ namespace Ejecuciones.Controllers
             return View(fallador);
         }
 
-        // GET: Falladors/Delete/5
+        // GET: Falladores/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -147,7 +147,7 @@ namespace Ejecuciones.Controllers
             return View(fallador);
         }
 
-        // POST: Falladors/Delete/5
+        // POST: Falladores/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

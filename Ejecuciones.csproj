@@ -6,7 +6,46 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\CargoEmpleadoes\**" />
+    <Compile Remove="Views\Despachoes\**" />
+    <Compile Remove="Views\EstadoSolicituds\**" />
+    <Compile Remove="Views\Falladors\**" />
+    <Compile Remove="Views\Procesoes\**" />
+    <Compile Remove="Views\Solicituds\**" />
+    <Compile Remove="Views\TipoSolicituds\**" />
+    <Content Remove="Views\CargoEmpleadoes\**" />
+    <Content Remove="Views\Despachoes\**" />
+    <Content Remove="Views\EstadoSolicituds\**" />
+    <Content Remove="Views\Falladors\**" />
+    <Content Remove="Views\Procesoes\**" />
+    <Content Remove="Views\Solicituds\**" />
+    <Content Remove="Views\TipoSolicituds\**" />
+    <EmbeddedResource Remove="Views\CargoEmpleadoes\**" />
+    <EmbeddedResource Remove="Views\Despachoes\**" />
+    <EmbeddedResource Remove="Views\EstadoSolicituds\**" />
+    <EmbeddedResource Remove="Views\Falladors\**" />
+    <EmbeddedResource Remove="Views\Procesoes\**" />
+    <EmbeddedResource Remove="Views\Solicituds\**" />
+    <EmbeddedResource Remove="Views\TipoSolicituds\**" />
+    <None Remove="Views\CargoEmpleadoes\**" />
+    <None Remove="Views\Despachoes\**" />
+    <None Remove="Views\EstadoSolicituds\**" />
+    <None Remove="Views\Falladors\**" />
+    <None Remove="Views\Procesoes\**" />
+    <None Remove="Views\Solicituds\**" />
+    <None Remove="Views\TipoSolicituds\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\CargoEmpleadoesController.cs" />
+    <Compile Remove="Controllers\DespachoesController.cs" />
+    <Compile Remove="Controllers\EstadoProcesoesController.cs" />
     <Compile Remove="Controllers\EstadoSolicituds1Controller.cs" />
+    <Compile Remove="Controllers\EstadoSolicitudsController.cs" />
+    <Compile Remove="Controllers\FalladorsController.cs" />
+    <Compile Remove="Controllers\ProcesoesController.cs" />
+    <Compile Remove="Controllers\SolicitudsController.cs" />
+    <Compile Remove="Controllers\TipoSolicitudsController.cs" />
     <Compile Remove="Models\ErrorViewMode1.cs" />
   </ItemGroup>
 

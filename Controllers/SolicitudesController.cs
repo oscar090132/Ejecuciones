@@ -10,23 +10,23 @@ using Ejecuciones.Models;
 
 namespace Ejecuciones.Controllers
 {
-    public class SolicitudsController : Controller
+    public class SolicitudesController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public SolicitudsController(ApplicationDbContext context)
+        public SolicitudesController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Solicituds
+        // GET: Solicitudes
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Solicitud.Include(s => s.Despacho).Include(s => s.EstadoSolicitud).Include(s => s.TipoSolicitud);
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Solicituds/Details/5
+        // GET: Solicitudes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -47,7 +47,7 @@ namespace Ejecuciones.Controllers
             return View(solicitud);
         }
 
-        // GET: Solicituds/Create
+        // GET: Solicitudes/Create
         public IActionResult Create()
         {
             ViewData["DespachoId"] = new SelectList(_context.Despacho, "DespachoId", "NombreDespacho");
@@ -56,7 +56,7 @@ namespace Ejecuciones.Controllers
             return View();
         }
 
-        // POST: Solicituds/Create
+        // POST: Solicitudes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -75,7 +75,7 @@ namespace Ejecuciones.Controllers
             return View(solicitud);
         }
 
-        // GET: Solicituds/Edit/5
+        // GET: Solicitudes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -94,7 +94,7 @@ namespace Ejecuciones.Controllers
             return View(solicitud);
         }
 
-        // POST: Solicituds/Edit/5
+        // POST: Solicitudes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -132,7 +132,7 @@ namespace Ejecuciones.Controllers
             return View(solicitud);
         }
 
-        // GET: Solicituds/Delete/5
+        // GET: Solicitudes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -153,7 +153,7 @@ namespace Ejecuciones.Controllers
             return View(solicitud);
         }
 
-        // POST: Solicituds/Delete/5
+        // POST: Solicitudes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

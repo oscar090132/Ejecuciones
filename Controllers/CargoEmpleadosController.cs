@@ -10,22 +10,22 @@ using Ejecuciones.Models;
 
 namespace Ejecuciones.Controllers
 {
-    public class DespachoesController : Controller
+    public class CargoEmpleadosController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public DespachoesController(ApplicationDbContext context)
+        public CargoEmpleadosController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Despachoes
+        // GET: CargoEmpleados
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Despacho.ToListAsync());
+            return View(await _context.CargoEmpleado.ToListAsync());
         }
 
-        // GET: Despachoes/Details/5
+        // GET: CargoEmpleados/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace Ejecuciones.Controllers
                 return NotFound();
             }
 
-            var despacho = await _context.Despacho
-                .FirstOrDefaultAsync(m => m.DespachoId == id);
-            if (despacho == null)
+            var cargoEmpleado = await _context.CargoEmpleado
+                .FirstOrDefaultAsync(m => m.CargoId == id);
+            if (cargoEmpleado == null)
             {
                 return NotFound();
             }
 
-            return View(despacho);
+            return View(cargoEmpleado);
         }
 
-        // GET: Despachoes/Create
+        // GET: CargoEmpleados/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Despachoes/Create
+        // POST: CargoEmpleados/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DespachoId,NombreDespacho")] Despacho despacho)
+        public async Task<IActionResult> Create([Bind("CargoId,NombreCargo")] CargoEmpleado cargoEmpleado)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(despacho);
+                _context.Add(cargoEmpleado);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(despacho);
+            return View(cargoEmpleado);
         }
 
-        // GET: Despachoes/Edit/5
+        // GET: CargoEmpleados/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace Ejecuciones.Controllers
                 return NotFound();
             }
 
-            var despacho = await _context.Despacho.FindAsync(id);
-            if (despacho == null)
+            var cargoEmpleado = await _context.CargoEmpleado.FindAsync(id);
+            if (cargoEmpleado == null)
             {
                 return NotFound();
             }
-            return View(despacho);
+            return View(cargoEmpleado);
         }
 
-        // POST: Despachoes/Edit/5
+        // POST: CargoEmpleados/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("DespachoId,NombreDespacho")] Despacho despacho)
+        public async Task<IActionResult> Edit(int id, [Bind("CargoId,NombreCargo")] CargoEmpleado cargoEmpleado)
         {
-            if (id != despacho.DespachoId)
+            if (id != cargoEmpleado.CargoId)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace Ejecuciones.Controllers
             {
                 try
                 {
-                    _context.Update(despacho);
+                    _context.Update(cargoEmpleado);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!DespachoExists(despacho.DespachoId))
+                    if (!CargoEmpleadoExists(cargoEmpleado.CargoId))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace Ejecuciones.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(despacho);
+            return View(cargoEmpleado);
         }
 
-        // GET: Despachoes/Delete/5
+        // GET: CargoEmpleados/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +124,30 @@ namespace Ejecuciones.Controllers
                 return NotFound();
             }
 
-            var despacho = await _context.Despacho
-                .FirstOrDefaultAsync(m => m.DespachoId == id);
-            if (despacho == null)
+            var cargoEmpleado = await _context.CargoEmpleado
+                .FirstOrDefaultAsync(m => m.CargoId == id);
+            if (cargoEmpleado == null)
             {
                 return NotFound();
             }
 
-            return View(despacho);
+            return View(cargoEmpleado);
         }
 
-        // POST: Despachoes/Delete/5
+        // POST: CargoEmpleados/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var despacho = await _context.Despacho.FindAsync(id);
-            _context.Despacho.Remove(despacho);
+            var cargoEmpleado = await _context.CargoEmpleado.FindAsync(id);
+            _context.CargoEmpleado.Remove(cargoEmpleado);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool DespachoExists(int id)
+        private bool CargoEmpleadoExists(int id)
         {
-            return _context.Despacho.Any(e => e.DespachoId == id);
+            return _context.CargoEmpleado.Any(e => e.CargoId == id);
         }
     }
 }

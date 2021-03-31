@@ -10,22 +10,22 @@ using Ejecuciones.Models;
 
 namespace Ejecuciones.Controllers
 {
-    public class CargoEmpleadoesController : Controller
+    public class EstadoSolicitudesController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public CargoEmpleadoesController(ApplicationDbContext context)
+        public EstadoSolicitudesController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: CargoEmpleadoes
+        // GET: EstadoSolicitudes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.CargoEmpleado.ToListAsync());
+            return View(await _context.EstadoSolicitud.ToListAsync());
         }
 
-        // GET: CargoEmpleadoes/Details/5
+        // GET: EstadoSolicitudes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace Ejecuciones.Controllers
                 return NotFound();
             }
 
-            var cargoEmpleado = await _context.CargoEmpleado
-                .FirstOrDefaultAsync(m => m.CargoId == id);
-            if (cargoEmpleado == null)
+            var estadoSolicitud = await _context.EstadoSolicitud
+                .FirstOrDefaultAsync(m => m.EstadoSolicitudId == id);
+            if (estadoSolicitud == null)
             {
                 return NotFound();
             }
 
-            return View(cargoEmpleado);
+            return View(estadoSolicitud);
         }
 
-        // GET: CargoEmpleadoes/Create
+        // GET: EstadoSolicitudes/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: CargoEmpleadoes/Create
+        // POST: EstadoSolicitudes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CargoId,NombreCargo")] CargoEmpleado cargoEmpleado)
+        public async Task<IActionResult> Create([Bind("EstadoSolicitudId,NombreEstadoSolicitud")] EstadoSolicitud estadoSolicitud)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(cargoEmpleado);
+                _context.Add(estadoSolicitud);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(cargoEmpleado);
+            return View(estadoSolicitud);
         }
 
-        // GET: CargoEmpleadoes/Edit/5
+        // GET: EstadoSolicitudes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace Ejecuciones.Controllers
                 return NotFound();
             }
 
-            var cargoEmpleado = await _context.CargoEmpleado.FindAsync(id);
-            if (cargoEmpleado == null)
+            var estadoSolicitud = await _context.EstadoSolicitud.FindAsync(id);
+            if (estadoSolicitud == null)
             {
                 return NotFound();
             }
-            return View(cargoEmpleado);
+            return View(estadoSolicitud);
         }
 
-        // POST: CargoEmpleadoes/Edit/5
+        // POST: EstadoSolicitudes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CargoId,NombreCargo")] CargoEmpleado cargoEmpleado)
+        public async Task<IActionResult> Edit(int id, [Bind("EstadoSolicitudId,NombreEstadoSolicitud")] EstadoSolicitud estadoSolicitud)
         {
-            if (id != cargoEmpleado.CargoId)
+            if (id != estadoSolicitud.EstadoSolicitudId)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace Ejecuciones.Controllers
             {
                 try
                 {
-                    _context.Update(cargoEmpleado);
+                    _context.Update(estadoSolicitud);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CargoEmpleadoExists(cargoEmpleado.CargoId))
+                    if (!EstadoSolicitudExists(estadoSolicitud.EstadoSolicitudId))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace Ejecuciones.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(cargoEmpleado);
+            return View(estadoSolicitud);
         }
 
-        // GET: CargoEmpleadoes/Delete/5
+        // GET: EstadoSolicitudes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +124,30 @@ namespace Ejecuciones.Controllers
                 return NotFound();
             }
 
-            var cargoEmpleado = await _context.CargoEmpleado
-                .FirstOrDefaultAsync(m => m.CargoId == id);
-            if (cargoEmpleado == null)
+            var estadoSolicitud = await _context.EstadoSolicitud
+                .FirstOrDefaultAsync(m => m.EstadoSolicitudId == id);
+            if (estadoSolicitud == null)
             {
                 return NotFound();
             }
 
-            return View(cargoEmpleado);
+            return View(estadoSolicitud);
         }
 
-        // POST: CargoEmpleadoes/Delete/5
+        // POST: EstadoSolicitudes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var cargoEmpleado = await _context.CargoEmpleado.FindAsync(id);
-            _context.CargoEmpleado.Remove(cargoEmpleado);
+            var estadoSolicitud = await _context.EstadoSolicitud.FindAsync(id);
+            _context.EstadoSolicitud.Remove(estadoSolicitud);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CargoEmpleadoExists(int id)
+        private bool EstadoSolicitudExists(int id)
         {
-            return _context.CargoEmpleado.Any(e => e.CargoId == id);
+            return _context.EstadoSolicitud.Any(e => e.EstadoSolicitudId == id);
         }
     }
 }
