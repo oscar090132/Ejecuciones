@@ -1,15 +1,16 @@
 ﻿@model Ejecuciones.Models.Funcionario
 
 @{
-    ViewData["Title"] = "Eliminar";
+    ViewData["Title"] = "Funcionarios";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Delete</h1>
+<h1>Eliminar</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Funcionarios</h3>
+
+<h6>Confirma que desea eliminar el siguiente registro?</h6>
 <div>
-    <h4>Funcionario</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -46,7 +47,7 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="FuncionarioId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Eliminar" class="btn btn-primary" /> |
+        <a asp-action="Index">Volver a la lista</a>
     </form>
 </div>

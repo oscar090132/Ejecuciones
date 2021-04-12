@@ -1,0 +1,25 @@
+﻿@model Ejecuciones.Models.TipoSolicitud
+
+@{
+    ViewData["Title"] = "Tipo Solicitud";
+}
+
+<h1>Detalle</h1>
+
+<h3>Tipo Solicitud</h3>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NombreSolicitud)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NombreSolicitud)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.TipoSolicitudId">Editar</a> |
+    <a asp-action="Index">Volver a la lista</a>
+</div>

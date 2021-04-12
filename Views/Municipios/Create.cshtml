@@ -1,13 +1,14 @@
 ﻿@model Ejecuciones.Models.Municipio
 
 @{
-    ViewData["Title"] = "Adicionar";
+    ViewData["Title"] = "Municipios";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
+<h1>Municipios</h1>
 
-<h4>Municipio</h4>
+<h3>Nuevo Municipio</h3>
+
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -28,14 +29,14 @@
                 <select asp-for="DepartamentoId" class ="form-control" asp-items="ViewBag.DepartamentoId"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Guardar" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Volver a la lista</a>
 </div>
 
 @section Scripts {

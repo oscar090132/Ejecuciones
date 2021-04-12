@@ -26,15 +26,17 @@
                                 Datos Maestros
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item text-white-50" asp-area="" asp-controller="CargoEmpleados" asp-action="Index">Cargo Empleados</a>
                                 <a class="dropdown-item text-white-50" asp-area="" asp-controller="Departamentos" asp-action="Index">Departamentos</a>
                                 <a class="dropdown-item text-white-50" asp-area="" asp-controller="Despachos" asp-action="Index">Despachos</a>
                                 <a class="dropdown-item text-white-50" asp-area="" asp-controller="EstadoProcesos" asp-action="Index">Estados Proceso</a>
                                 <a class="dropdown-item text-white-50" asp-area="" asp-controller="EstadoSolicitudes" asp-action="Index">Estados Solicitud</a>
                                 <a class="dropdown-item text-white-50" asp-area="" asp-controller="Falladores" asp-action="Index">Falladores</a>
+                                <a class="dropdown-item text-white-50" asp-area="" asp-controller="Funcionarios" asp-action="Index">Funcionarios</a>
                                 <a class="dropdown-item text-white-50" asp-area="" asp-controller="Municipios" asp-action="Index">Municipios</a>
                                 <a class="dropdown-item text-white-50" asp-area="" asp-controller="TipoSolicitudes" asp-action="Index">Tipos Solicitud</a>
-                                <a class="dropdown-item text-white-50" asp-area="" asp-controller="CargoEmpleados" asp-action="Index">Usuarios y Roles</a>
-                                
+                                <a class="dropdown-item text-white-50" asp-area="" asp-controller="UsuariosRoles" asp-action="Index">Usuarios y Roles</a>
+
                             </div>
                         </li>
 
@@ -58,7 +60,7 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted" ng-style="">
         <div class="container">
             &copy; 2021 - CSA Manizales - <a asp-area="" asp-controller="Home" asp-action="Privacidad">Privacidad</a>
         </div>

@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<Ejecuciones.Models.Fallador>
 
 @{
-    ViewData["Title"] = "Ordenar";
+    ViewData["Title"] = "Juzgados Falladores";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Juzgados Falladores</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Nuevo Fallador</a>
 </p>
 <table class="table">
     <thead>
@@ -32,15 +32,15 @@
                 @Html.DisplayFor(modelItem => item.JuzgadoFallador)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Departamento.CodigoDepartamento)
+                @Html.DisplayFor(modelItem => item.Departamento.NombreDepartamento)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Municipio.CodigoMunicipio)
+                @Html.DisplayFor(modelItem => item.Municipio.NombreMunicipio)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.FalladorId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.FalladorId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.FalladorId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.FalladorId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.FalladorId">Detalle</a> |
+                <a asp-action="Delete" asp-route-id="@item.FalladorId">Eliminar</a>
             </td>
         </tr>
 }

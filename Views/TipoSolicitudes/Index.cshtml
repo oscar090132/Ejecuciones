@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Ejecuciones.Models.TipoSolicitud>
+
+@{
+    ViewData["Title"] = "Tipo Solicitud";
+}
+
+<h1>Tipo Solicitud</h1>
+
+<p>
+    <a asp-action="Create">Nuevo Tipo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreSolicitud)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreSolicitud)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TipoSolicitudId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.TipoSolicitudId">Detalle</a> |
+                <a asp-action="Delete" asp-route-id="@item.TipoSolicitudId">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

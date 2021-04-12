@@ -1,14 +1,15 @@
 ﻿@model Ejecuciones.Models.Despacho
 
 @{
-    ViewData["Title"] = "Detalle";
+    ViewData["Title"] = "Despachos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
+<h1>Detalle</h1>
+
+<h3>Despachos</h3>
 
 <div>
-    <h4>Despacho</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -20,6 +21,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.DespachoId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.DespachoId">Editar</a> |
+    <a asp-action="Index">Volver a la lista</a>
 </div>

@@ -1,14 +1,15 @@
 ﻿@model Ejecuciones.Models.Fallador
 
 @{
-    ViewData["Title"] = "Detalle";
+    ViewData["Title"] = "Juzgados Falladores";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
+<h1>Detalle</h1>
+
+<h3>Juzgados Falladores</h3>
 
 <div>
-    <h4>Fallador</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -21,17 +22,17 @@
             @Html.DisplayNameFor(model => model.Departamento)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Departamento.CodigoDepartamento)
+            @Html.DisplayFor(model => model.Departamento.NombreDepartamento)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Municipio)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Municipio.CodigoMunicipio)
+            @Html.DisplayFor(model => model.Municipio.NombreMunicipio)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.FalladorId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.FalladorId">Editar</a> |
+    <a asp-action="Index">Volver a la lista</a>
 </div>

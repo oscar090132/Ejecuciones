@@ -1,0 +1,28 @@
+﻿@model Ejecuciones.Models.TipoSolicitud
+
+@{
+    ViewData["Title"] = "Tipo Solicitus";
+}
+
+<h1>Eliminar</h1>
+
+<h3>Tipo Solicitud</h3>
+
+<h6>Confirma que desea eliminar el siguiente registro?</h6>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NombreSolicitud)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NombreSolicitud)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="TipoSolicitudId" />
+        <input type="submit" value="Eliminar" class="btn btn-primary" /> |
+        <a asp-action="Index">Volver a la lista</a>
+    </form>
+</div>

@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<Ejecuciones.Models.EstadoSolicitud>
 
 @{
-    ViewData["Title"] = "Ordenar";
+    ViewData["Title"] = "Estado Solicitud";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Estado Solicitud</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Nuevo Estado</a>
 </p>
 <table class="table">
     <thead>
@@ -26,9 +26,9 @@
                 @Html.DisplayFor(modelItem => item.NombreEstadoSolicitud)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.EstadoSolicitudId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.EstadoSolicitudId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.EstadoSolicitudId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.EstadoSolicitudId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.EstadoSolicitudId">Detalle</a> |
+                <a asp-action="Delete" asp-route-id="@item.EstadoSolicitudId">Eliminar</a>
             </td>
         </tr>
 }
