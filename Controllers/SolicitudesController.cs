@@ -7,16 +7,21 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Ejecuciones.Data;
 using Ejecuciones.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting;
+using Ejecuciones.Helpers;
 
 namespace Ejecuciones.Controllers
 {
     public class SolicitudesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment webHostEnvironment;
 
-        public SolicitudesController(ApplicationDbContext context)
+        public SolicitudesController(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            this.webHostEnvironment = webHostEnvironment;
         }
 
         // GET: Solicitudes
@@ -61,10 +66,21 @@ namespace Ejecuciones.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("SolicitudId,DespachoId,TipoSolicitudId,FechaSolicitud,CedulaCondenado,NombresCondenado,ApellidosCondenado,AnexosSolicitud,CuadernosSolicitud,FoliosSolicitud,EstadoSolicitudId")] Solicitud solicitud)
+        //public async Task<IActionResult> Create([Bind("SolicitudId,DespachoId,TipoSolicitudId,FechaSolicitud,CedulaCondenado,NombresCondenado,ApellidosCondenado,AnexosSolicitud,CuadernosSolicitud,FoliosSolicitud,EstadoSolicitudId")] Solicitud solicitud, IFormFile file)
+        public async Task<IActionResult> Create(Solicitud solicitud)
         {
             if (ModelState.IsValid)
             {
+
+                if (solicitud.SolicitudPdf != null)
+                {
+                    string folder = @"solicitudes\";
+                    UploadFiles uploadFiles = new UploadFiles();
+                    solicitud.AnexosSolicitud = await uploadFiles.UploadPDF(webHostEnvironment, folder, solicitud.SolicitudPdf);
+                }
+
+
+
                 _context.Add(solicitud);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

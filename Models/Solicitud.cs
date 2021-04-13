@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -37,9 +38,13 @@ namespace Ejecuciones.Models
         [StringLength(200, ErrorMessage = "Máximo 200 caracteres")]
         [Display(Name = "Apellido(s) Condenado:")]
         public string ApellidosCondenado { get; set; }
-
+        
+        [Display(Name = "Seleccione Archivo PDF: ")]
+        [NotMapped]
+        public IFormFile SolicitudPdf { get; set; }
         public string AnexosSolicitud { get; set; }
 
+        
         [Required(ErrorMessage = "Cuadernos requerido")]
         [StringLength(2, ErrorMessage = "Máximo 2 caracteres")]
         [Display(Name = "Cuadernos:")]
