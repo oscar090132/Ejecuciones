@@ -15,7 +15,7 @@ namespace Ejecuciones.Models
         
         [Required (ErrorMessage ="Campo Requerido")]
         [StringLength(50,ErrorMessage ="50 caracteres máximo")]
-        [Display(Name = "Nombre Despacho:")]
+        [Display(Name = "Nombre Despacho")]
         public string NombreDespacho { get; set; }
 
         public virtual ICollection<Funcionario> Funcionarios { get; set; }

@@ -210,7 +210,7 @@ namespace Ejecuciones.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityAlwaysColumn);
 
-                    b.Property<string>("AnexosSolicitud")
+                    b.Property<string>("AnexosProceso")
                         .HasColumnType("text");
 
                     b.Property<string>("CuadernosProceso")

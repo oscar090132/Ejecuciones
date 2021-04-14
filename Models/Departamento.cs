@@ -16,12 +16,12 @@ namespace Ejecuciones.Models
         
         [StringLength(2,ErrorMessage ="2 caracteres numéricos")]
         [Required(ErrorMessage = "Código Requerido")]
-        [Display(Name = "Codigo Departamento:")]
+        [Display(Name = "Codigo Departamento")]
         public string CodigoDepartamento { get; set; }
         
         [StringLength(30, ErrorMessage = "30 caracteres máximo")]
         [Required(ErrorMessage="Nombre Requerido")]
-        [Display(Name = "Nombre Departamento:")]
+        [Display(Name = "Nombre Departamento")]
         public string NombreDepartamento { get; set; }
         
         public virtual ICollection<Municipio> Municipios { get; set; }

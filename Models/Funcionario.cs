@@ -15,25 +15,25 @@ namespace Ejecuciones.Models
 
         [Required(ErrorMessage = "Cédula requerida")]
         [StringLength(10, ErrorMessage = "Máximo 10 caracteres")]
-        [Display(Name = "Cedula:")]
+        [Display(Name = "Cedula")]
         public string Cedula { get; set; }
 
         [Required(ErrorMessage ="Nombre(s) requerido")]
         [StringLength(200,ErrorMessage ="Máximo 200 caracteres")]
-        [Display(Name ="Nombre(s):")]
+        [Display(Name ="Nombre(s)")]
         public string Nombres{ get; set; }
         
         [Required(ErrorMessage = "Apellido(s) requerido")]
         [StringLength(200, ErrorMessage = "Máximo 200 caracteres")]
-        [Display(Name = "Apellido(s):")]
+        [Display(Name = "Apellido(s)")]
         public string Apellidos { get; set; }
 
         [Required(ErrorMessage = "Despacho requerido")]
-        [Display(Name = "Despacho:")]
+        [Display(Name = "Despacho")]
         public int DespachoId { get; set; }
 
         [Required(ErrorMessage = "Cargo requerido")]
-        [Display(Name = "Cargo:")]
+        [Display(Name = "Cargo")]
         public int CargoId { get; set; }
 
         public virtual Despacho Despacho { get; set; }

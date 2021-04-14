@@ -7,16 +7,21 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Ejecuciones.Data;
 using Ejecuciones.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting;
+using Ejecuciones.Helpers;
 
 namespace Ejecuciones.Controllers
 {
     public class ProcesosController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment webHostEnvironment;
 
-        public ProcesosController(ApplicationDbContext context)
+        public ProcesosController(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            this.webHostEnvironment = webHostEnvironment;
         }
 
         // GET: Procesos
@@ -61,10 +66,26 @@ namespace Ejecuciones.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProcesoId,DespachoId,FechaProceso,RadicadoProceso,FalladorId,AnexosSolicitud,CuadernosProceso,FoliosProceso,EstadoProcesoId")] Proceso proceso)
+        
+        //public async Task<IActionResult> Create([Bind("ProcesoId,DespachoId,FechaProceso,RadicadoProceso,FalladorId,AnexosSolicitud,CuadernosProceso,FoliosProceso,EstadoProcesoId")] Proceso proceso)
+        public async Task<IActionResult> Create(Proceso proceso)
         {
             if (ModelState.IsValid)
             {
+
+                if (proceso.ProcesoPdf != null)
+                {
+                    string folder = @"procesos\";
+                    UploadFiles uploadFiles = new UploadFiles();
+                    proceso.AnexosProceso = await uploadFiles.UploadPDF(webHostEnvironment, folder, proceso.ProcesoPdf);
+                }
+
+                proceso.FechaProceso = DateTime.Now;
+                //solicitud.DespachoId = (_context.Despacho, "DspachoId", "NombreDespacho" = 'SECRETARIA CENTRO DE SERVICIOS');
+                proceso.DespachoId = 5;
+                //solicitud.EstadoProcesoId = (_context.EstadoProceso, "EstadoProcesoId", "NombreEstadoProceso" = 'SIN REPARTIR');
+                proceso.EstadoProcesoId = 5;
+
                 _context.Add(proceso);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -110,6 +131,12 @@ namespace Ejecuciones.Controllers
             {
                 try
                 {
+                    proceso.FechaProceso = DateTime.Now;
+                    //solicitud.DespachoId = (_context.Despacho, "DspachoId", "NombreDespacho" = 'SECRETARIA CENTRO DE SERVICIOS');
+                    proceso.DespachoId = 5;
+                    //solicitud.EstadoProcesoId = (_context.EstadoProceso, "EstadoProcesoId", "NombreEstadoProceso" = 'SIN REPARTIR');
+                    proceso.EstadoProcesoId = 5;
+
                     _context.Update(proceso);
                     await _context.SaveChangesAsync();
                 }

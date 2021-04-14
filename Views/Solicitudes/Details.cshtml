@@ -1,79 +1,79 @@
 ﻿@model Ejecuciones.Models.Solicitud
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Registrar Solicitud";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
+<h1>Detalle</h1>
+<h4>Solicitud</h4>
 
 <div>
-    <h4>Solicitud</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.FechaSolicitud)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.FechaSolicitud)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.CedulaCondenado)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.CedulaCondenado)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.NombresCondenado)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.NombresCondenado)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ApellidosCondenado)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.ApellidosCondenado)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AnexosSolicitud)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AnexosSolicitud)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CuadernosSolicitud)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CuadernosSolicitud)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FoliosSolicitud)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FoliosSolicitud)
-        </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Despacho)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Despacho.NombreDespacho)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.TipoSolicitud)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.TipoSolicitud.NombreSolicitud)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CuadernosSolicitud)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CuadernosSolicitud)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FoliosSolicitud)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FoliosSolicitud)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AnexosSolicitud)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AnexosSolicitud)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.EstadoSolicitud)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.EstadoSolicitud.NombreEstadoSolicitud)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.SolicitudId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.SolicitudId">Editar</a> |
+    <a asp-action="Index">Volver a la lista</a>
 </div>

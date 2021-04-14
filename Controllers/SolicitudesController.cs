@@ -79,7 +79,9 @@ namespace Ejecuciones.Controllers
                     solicitud.AnexosSolicitud = await uploadFiles.UploadPDF(webHostEnvironment, folder, solicitud.SolicitudPdf);
                 }
 
-
+                solicitud.FechaSolicitud = DateTime.Now;
+                //solicitud.EstadoSolicitudId = (_context.EstadoSolicitud, "EstadoSolicitudId", "NombreEstadoSolicitud" = 'REGISTRADA');
+                solicitud.EstadoSolicitudId = 2;
 
                 _context.Add(solicitud);
                 await _context.SaveChangesAsync();
@@ -126,6 +128,10 @@ namespace Ejecuciones.Controllers
             {
                 try
                 {
+                    solicitud.FechaSolicitud = DateTime.Now;
+                    //solicitud.EstadoSolicitudId = (_context.EstadoSolicitud, "EstadoSolicitudId", "NombreEstadoSolicitud" = 'REGISTRADA');
+                    solicitud.EstadoSolicitudId = 2;
+
                     _context.Update(solicitud);
                     await _context.SaveChangesAsync();
                 }

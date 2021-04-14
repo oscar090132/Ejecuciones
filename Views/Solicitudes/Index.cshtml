@@ -1,18 +1,21 @@
 ﻿@model IEnumerable<Ejecuciones.Models.Solicitud>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Registrar Solicitudes";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Registrar Solicitudes</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Nueva Solicitud</a>
 </p>
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SolicitudId)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.FechaSolicitud)
             </th>
@@ -24,15 +27,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ApellidosCondenado)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AnexosSolicitud)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CuadernosSolicitud)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FoliosSolicitud)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Despacho)
@@ -50,6 +44,9 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.SolicitudId)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.FechaSolicitud)
             </td>
             <td>
@@ -62,15 +59,6 @@
                 @Html.DisplayFor(modelItem => item.ApellidosCondenado)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.AnexosSolicitud)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CuadernosSolicitud)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FoliosSolicitud)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Despacho.NombreDespacho)
             </td>
             <td>
@@ -80,9 +68,9 @@
                 @Html.DisplayFor(modelItem => item.EstadoSolicitud.NombreEstadoSolicitud)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.SolicitudId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.SolicitudId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.SolicitudId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.SolicitudId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.SolicitudId">Detalle</a> |
+                <a asp-action="Delete" asp-route-id="@item.SolicitudId">Eliminar</a>
             </td>
         </tr>
 }

@@ -1,82 +1,88 @@
 ﻿@model Ejecuciones.Models.Solicitud
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Registrar Solicitud";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Delete</h1>
+<h1>Eliminar</h1>
+<h3>Solicitud</h3>
+<h6>Confirma que desea eliminar la siguiente solicitud?</h6>
 
-<h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Solicitud</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SolicitudId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SolicitudId)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.FechaSolicitud)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.FechaSolicitud)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.CedulaCondenado)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.CedulaCondenado)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.NombresCondenado)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.NombresCondenado)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ApellidosCondenado)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.ApellidosCondenado)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AnexosSolicitud)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AnexosSolicitud)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CuadernosSolicitud)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CuadernosSolicitud)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FoliosSolicitud)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FoliosSolicitud)
-        </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Despacho)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Despacho.NombreDespacho)
-        </dd class>
-        <dt class = "col-sm-2">
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.TipoSolicitud)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.TipoSolicitud.NombreSolicitud)
-        </dd class>
-        <dt class = "col-sm-2">
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CuadernosSolicitud)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CuadernosSolicitud)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FoliosSolicitud)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FoliosSolicitud)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AnexosSolicitud)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AnexosSolicitud)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.EstadoSolicitud)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.EstadoSolicitud.NombreEstadoSolicitud)
-        </dd class>
+        </dd>
     </dl>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="SolicitudId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Eliminar" class="btn btn-primary" /> |
+        <a asp-action="Index">Volver a la lista</a>
     </form>
 </div>

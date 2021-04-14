@@ -14,54 +14,60 @@
 <div>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ProcesoId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ProcesoId)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.FechaProceso)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.FechaProceso)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.RadicadoProceso)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.RadicadoProceso)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AnexosSolicitud)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AnexosSolicitud)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CuadernosProceso)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CuadernosProceso)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FoliosProceso)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FoliosProceso)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Despacho)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Despacho.NombreDespacho)
-        </dd class>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Fallador)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Fallador.JuzgadoFallador)
-        </dd class>
-        <dt class = "col-sm-2">
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CuadernosProceso)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CuadernosProceso)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FoliosProceso)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FoliosProceso)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AnexosProceso)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AnexosProceso)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Despacho)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Despacho.NombreDespacho)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.EstadoProceso)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.EstadoProceso.NombreEstadoProceso)
-        </dd class>
+        </dd>
     </dl>
     
     <form asp-action="Delete">

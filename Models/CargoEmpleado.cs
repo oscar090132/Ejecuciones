@@ -15,7 +15,7 @@ namespace Ejecuciones.Models
 
         [StringLength(30, ErrorMessage = "30 caracteres máximo")]
         [Required(ErrorMessage = "Nombre Requerido")]
-        [Display(Name = "Nombre Cargo:")]
+        [Display(Name = "Nombre Cargo")]
         public string NombreCargo { get; set; }
     }
 }

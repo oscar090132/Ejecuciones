@@ -15,13 +15,13 @@ namespace Ejecuciones.Models
         public int MunicipioId { get; set; }
         
         [StringLength(3,ErrorMessage ="3 caracteres numéricos")]
-        [Required]
-        [Display(Name = "Codigo Municipio:")]
+        [Required(ErrorMessage = "Código Requerido")]
+        [Display(Name = "Codigo Municipio")]
         public string CodigoMunicipio { get; set; }
         
         [StringLength(30, ErrorMessage = "30 caracteres máximo")]
         [Required(ErrorMessage = "Nombre Requerido")]
-        [Display(Name = "Nombre Municipio:")]
+        [Display(Name = "Nombre Municipio")]
         public string NombreMunicipio { get; set; }
 
         public int DepartamentoId { get; set; }
@@ -38,7 +38,7 @@ namespace Ejecuciones.Models
             }
             if (CodigoMunicipio.Trim().Length != 3)
             {
-                yield return new ValidationResult("El código deben ser tres carateres numericos", new string[] { nameof(CodigoMunicipio) });
+                yield return new ValidationResult("El código deben ser tres carateres numéricos", new string[] { nameof(CodigoMunicipio) });
             }
         }
     }

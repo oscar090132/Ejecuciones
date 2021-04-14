@@ -12,34 +12,37 @@ namespace Ejecuciones.Models
     public class Solicitud
     {
         [Key]
+        [Display(Name = "Solicitud")]
         public int SolicitudId { get; set; }
 
         [Required(ErrorMessage = "Seleccione Despacho")]
-        [Display(Name = "Despacho:")]
+        [Display(Name = "Despacho")]
         public int DespachoId { get; set; }
 
         [Required(ErrorMessage = "Seleccione Solicitud")]
-        [Display(Name = "Solicitud:")]
+        [Display(Name = "Solicitud")]
         public int TipoSolicitudId { get; set; }
 
+        [Display(Name = "Fecha")] 
         public DateTime FechaSolicitud { get; set; }
 
         [Required(ErrorMessage = "Cedula Requerida")]
         [StringLength(10, ErrorMessage = "Máximo 10 caracteres")]
-        [Display(Name = "Cedula Condenado:")]
+        [Display(Name = "Condenado")]
         public string CedulaCondenado { get; set; }
 
         [Required(ErrorMessage = "Nombre(s) requerido")]
         [StringLength(200, ErrorMessage = "Máximo 200 caracteres")]
-        [Display(Name = "Nombre(s) Condenado:")]
+        [Display(Name = "Nombre(s)")]
         public string NombresCondenado { get; set; }
 
         [Required(ErrorMessage = "Apellido(s) requerido")]
         [StringLength(200, ErrorMessage = "Máximo 200 caracteres")]
-        [Display(Name = "Apellido(s) Condenado:")]
+        [Display(Name = "Apellido(s)")]
         public string ApellidosCondenado { get; set; }
-        
-        [Display(Name = "Seleccione Archivo PDF: ")]
+
+        [Required(ErrorMessage = "No ha seleccionado ningun archivo")]
+        [Display(Name = "Archivos PDF")]
         [NotMapped]
         public IFormFile SolicitudPdf { get; set; }
         public string AnexosSolicitud { get; set; }
@@ -47,12 +50,12 @@ namespace Ejecuciones.Models
         
         [Required(ErrorMessage = "Cuadernos requerido")]
         [StringLength(2, ErrorMessage = "Máximo 2 caracteres")]
-        [Display(Name = "Cuadernos:")]
+        [Display(Name = "Cuadernos")]
         public string CuadernosSolicitud { get; set; }
 
         [Required(ErrorMessage = "Folios requerido")]
         [StringLength(2, ErrorMessage = "Máximo 2 caracteres")]
-        [Display(Name = "Folios:")]
+        [Display(Name = "Folios")]
         public string FoliosSolicitud { get; set; }
 
         public int EstadoSolicitudId { get; set; }

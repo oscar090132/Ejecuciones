@@ -1,34 +1,20 @@
 ﻿@model Ejecuciones.Models.Solicitud
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Registrar Solicitud";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Edit</h1>
+<h1>Editar</h1>
 
-<h4>Solicitud</h4>
+<h3>Solicitud</h3>
+
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="SolicitudId" />
-            <div class="form-group">
-                <label asp-for="DespachoId" class="control-label"></label>
-                <select asp-for="DespachoId" class="form-control" asp-items="ViewBag.DespachoId"></select>
-                <span asp-validation-for="DespachoId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TipoSolicitudId" class="control-label"></label>
-                <select asp-for="TipoSolicitudId" class="form-control" asp-items="ViewBag.TipoSolicitudId"></select>
-                <span asp-validation-for="TipoSolicitudId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FechaSolicitud" class="control-label"></label>
-                <input asp-for="FechaSolicitud" class="form-control" />
-                <span asp-validation-for="FechaSolicitud" class="text-danger"></span>
-            </div>
             <div class="form-group">
                 <label asp-for="CedulaCondenado" class="control-label"></label>
                 <input asp-for="CedulaCondenado" class="form-control" />
@@ -45,9 +31,14 @@
                 <span asp-validation-for="ApellidosCondenado" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AnexosSolicitud" class="control-label"></label>
-                <input asp-for="AnexosSolicitud" class="form-control" />
-                <span asp-validation-for="AnexosSolicitud" class="text-danger"></span>
+                <label asp-for="DespachoId" class="control-label"></label>
+                <select asp-for="DespachoId" class="form-control" asp-items="ViewBag.DespachoId"></select>
+                <span asp-validation-for="DespachoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoSolicitudId" class="control-label"></label>
+                <select asp-for="TipoSolicitudId" class="form-control" asp-items="ViewBag.TipoSolicitudId"></select>
+                <span asp-validation-for="TipoSolicitudId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CuadernosSolicitud" class="control-label"></label>
@@ -60,19 +51,22 @@
                 <span asp-validation-for="FoliosSolicitud" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EstadoSolicitudId" class="control-label"></label>
-                <select asp-for="EstadoSolicitudId" class="form-control" asp-items="ViewBag.EstadoSolicitudId"></select>
-                <span asp-validation-for="EstadoSolicitudId" class="text-danger"></span>
+                <label asp-for="AnexosSolicitud" class="control-label"></label>
+                <@Html.DisplayFor(model => model.AnexosSolicitud)>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <label for="exampleFormControlFile1">Cambiar Anexos?</label>
+                <input asp-for="SolicitudPdf" class="form-control-file" id="SolicitudPdf">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Volver a la lista</a>
 </div>
 
 @section Scripts {

@@ -14,25 +14,22 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.ProcesoId)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.FechaProceso)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.RadicadoProceso)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.AnexosSolicitud)
+                @Html.DisplayNameFor(model => model.Fallador)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.CuadernosProceso)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.FoliosProceso)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Despacho)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Fallador)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.EstadoProceso)
@@ -44,25 +41,22 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.ProcesoId)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.FechaProceso)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.RadicadoProceso)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.AnexosSolicitud)
+                @Html.DisplayFor(modelItem => item.Fallador.JuzgadoFallador)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CuadernosProceso)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FoliosProceso)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Despacho.NombreDespacho)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fallador.JuzgadoFallador)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.EstadoProceso.NombreEstadoProceso)

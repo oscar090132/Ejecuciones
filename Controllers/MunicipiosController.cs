@@ -82,7 +82,7 @@ namespace Ejecuciones.Controllers
             {
                 return NotFound();
             }
-            ViewData["DepartamentoId"] = new SelectList(_context.Departamentos, "DepartamentoId", "CodigoDepartamento", municipio.DepartamentoId);
+            ViewData["DepartamentoId"] = new SelectList(_context.Departamentos, "DepartamentoId", "NombreDepartamento", municipio.DepartamentoId);
             return View(municipio);
         }
 

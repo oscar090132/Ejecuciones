@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -11,31 +12,37 @@ namespace Ejecuciones.Models
     public class Proceso
     {
         [Key]
+        [Display(Name = "Proceso")]
         public int ProcesoId { get; set; }
 
         public int DespachoId { get; set; }
 
+        [Display(Name = "Fecha")]
         public DateTime FechaProceso { get; set; }
 
         [Required(ErrorMessage = "Radicado del Proceso Requerido")]
         [MinLength(23, ErrorMessage = "Los 23 Dígitos del Radicado deben ser Digitados")]
-        [Display(Name = "Radicado Proceso:")]
+        [Display(Name = "Radicado")]
         public string RadicadoProceso { get; set; }
 
         [Required(ErrorMessage = "Seleccione Juzgado Fallador")]
-        [Display(Name = "Juzgado Fallador:")]
+        [Display(Name = "Fallador")]
         public int FalladorId { get; set; }
 
-        public string AnexosSolicitud { get; set; }
+        [Required(ErrorMessage = "No ha seleccionado ningun archivo")]
+        [Display(Name = "Archivos PDF")]
+        [NotMapped]
+        public IFormFile ProcesoPdf { get; set; }
+        public string AnexosProceso { get; set; }
 
         [Required(ErrorMessage = "Cuadernos requerido")]
         [StringLength(2, ErrorMessage = "Máximo 2 caracteres")]
-        [Display(Name = "Cuadernos:")]
+        [Display(Name = "Cuadernos")]
         public string CuadernosProceso { get; set; }
 
         [Required(ErrorMessage = "Folios requerido")]
         [StringLength(2, ErrorMessage = "Máximo 2 caracteres")]
-        [Display(Name = "Folios:")]
+        [Display(Name = "Folios")]
         public string FoliosProceso { get; set; }
 
         public int EstadoProcesoId { get; set; }

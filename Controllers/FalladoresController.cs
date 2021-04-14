@@ -49,8 +49,8 @@ namespace Ejecuciones.Controllers
         // GET: Falladores/Create
         public IActionResult Create()
         {
-            ViewData["DepartamentoId"] = new SelectList(_context.Departamentos, "DepartamentoId", "CodigoDepartamento");
-            ViewData["MunicipioId"] = new SelectList(_context.Municipios, "MunicipioId", "CodigoMunicipio");
+            ViewData["DepartamentoId"] = new SelectList(_context.Departamentos, "DepartamentoId", "NombreDepartamento");
+            ViewData["MunicipioId"] = new SelectList(_context.Municipios, "MunicipioId", "NombreMunicipio");
             return View();
         }
 
@@ -67,8 +67,8 @@ namespace Ejecuciones.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DepartamentoId"] = new SelectList(_context.Departamentos, "DepartamentoId", "CodigoDepartamento", fallador.DepartamentoId);
-            ViewData["MunicipioId"] = new SelectList(_context.Municipios, "MunicipioId", "CodigoMunicipio", fallador.MunicipioId);
+            ViewData["DepartamentoId"] = new SelectList(_context.Departamentos, "DepartamentoId", "NombreDepartamento", fallador.DepartamentoId);
+            ViewData["MunicipioId"] = new SelectList(_context.Municipios, "MunicipioId", "NombreMunicipio", fallador.MunicipioId);
             return View(fallador);
         }
 
@@ -85,8 +85,8 @@ namespace Ejecuciones.Controllers
             {
                 return NotFound();
             }
-            ViewData["DepartamentoId"] = new SelectList(_context.Departamentos, "DepartamentoId", "CodigoDepartamento", fallador.DepartamentoId);
-            ViewData["MunicipioId"] = new SelectList(_context.Municipios, "MunicipioId", "CodigoMunicipio", fallador.MunicipioId);
+            ViewData["DepartamentoId"] = new SelectList(_context.Departamentos, "DepartamentoId", "NombreDepartamento", fallador.DepartamentoId);
+            ViewData["MunicipioId"] = new SelectList(_context.Municipios, "MunicipioId", "NombreMunicipio", fallador.MunicipioId);
             return View(fallador);
         }
 
@@ -122,8 +122,8 @@ namespace Ejecuciones.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DepartamentoId"] = new SelectList(_context.Departamentos, "DepartamentoId", "CodigoDepartamento", fallador.DepartamentoId);
-            ViewData["MunicipioId"] = new SelectList(_context.Municipios, "MunicipioId", "CodigoMunicipio", fallador.MunicipioId);
+            ViewData["DepartamentoId"] = new SelectList(_context.Departamentos, "DepartamentoId", "NombreDepartamento", fallador.DepartamentoId);
+            ViewData["MunicipioId"] = new SelectList(_context.Municipios, "MunicipioId", "NombreMunicipio", fallador.MunicipioId);
             return View(fallador);
         }
 

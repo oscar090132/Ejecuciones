@@ -16,16 +16,6 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ProcesoId" />
             <div class="form-group">
-                <label asp-for="DespachoId" class="control-label"></label>
-                <select asp-for="DespachoId" class="form-control" asp-items="ViewBag.DespachoId"></select>
-                <span asp-validation-for="DespachoId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FechaProceso" class="control-label"></label>
-                <input asp-for="FechaProceso" class="form-control" />
-                <span asp-validation-for="FechaProceso" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="RadicadoProceso" class="control-label"></label>
                 <input asp-for="RadicadoProceso" class="form-control" />
                 <span asp-validation-for="RadicadoProceso" class="text-danger"></span>
@@ -34,11 +24,6 @@
                 <label asp-for="FalladorId" class="control-label"></label>
                 <select asp-for="FalladorId" class="form-control" asp-items="ViewBag.FalladorId"></select>
                 <span asp-validation-for="FalladorId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AnexosSolicitud" class="control-label"></label>
-                <input asp-for="AnexosSolicitud" class="form-control" />
-                <span asp-validation-for="AnexosSolicitud" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CuadernosProceso" class="control-label"></label>
@@ -51,9 +36,9 @@
                 <span asp-validation-for="FoliosProceso" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EstadoProcesoId" class="control-label"></label>
-                <select asp-for="EstadoProcesoId" class="form-control" asp-items="ViewBag.EstadoProcesoId"></select>
-                <span asp-validation-for="EstadoProcesoId" class="text-danger"></span>
+                <label asp-for="AnexosProceso" class="control-label"></label>
+                <input asp-for="AnexosProceso" class="form-control" />
+                <span asp-validation-for="AnexosProceso" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Cargar" class="btn btn-primary" />
