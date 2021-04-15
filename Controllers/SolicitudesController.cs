@@ -117,7 +117,8 @@ namespace Ejecuciones.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("SolicitudId,DespachoId,TipoSolicitudId,FechaSolicitud,CedulaCondenado,NombresCondenado,ApellidosCondenado,AnexosSolicitud,CuadernosSolicitud,FoliosSolicitud,EstadoSolicitudId")] Solicitud solicitud)
+        //public async Task<IActionResult> Edit(int id, [Bind("SolicitudId,DespachoId,TipoSolicitudId,FechaSolicitud,CedulaCondenado,NombresCondenado,ApellidosCondenado,AnexosSolicitud,CuadernosSolicitud,FoliosSolicitud,EstadoSolicitudId")] Solicitud solicitud)
+        public async Task<IActionResult> Edit(int id, Solicitud solicitud)
         {
             if (id != solicitud.SolicitudId)
             {
@@ -128,6 +129,21 @@ namespace Ejecuciones.Controllers
             {
                 try
                 {
+
+                    if (solicitud.SolicitudPdf != null)
+                    {
+                        string folder = @"solicitudes\";
+                        UploadFiles uploadFiles = new UploadFiles();
+                        solicitud.AnexosSolicitud = await uploadFiles.UploadPDF(webHostEnvironment, folder, solicitud.SolicitudPdf);
+                    }
+                    else
+                    {
+                        ViewData["DespachoId"] = new SelectList(_context.Despacho, "DespachoId", "NombreDespacho", solicitud.DespachoId);
+                        ViewData["EstadoSolicitudId"] = new SelectList(_context.EstadoSolicitud, "EstadoSolicitudId", "NombreEstadoSolicitud", solicitud.EstadoSolicitudId);
+                        ViewData["TipoSolicitudId"] = new SelectList(_context.TipoSolicitud, "TipoSolicitudId", "NombreSolicitud", solicitud.TipoSolicitudId);
+                        return View(solicitud);
+                    }
+
                     solicitud.FechaSolicitud = DateTime.Now;
                     //solicitud.EstadoSolicitudId = (_context.EstadoSolicitud, "EstadoSolicitudId", "NombreEstadoSolicitud" = 'REGISTRADA');
                     solicitud.EstadoSolicitudId = 2;

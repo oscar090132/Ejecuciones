@@ -29,8 +29,6 @@ namespace Ejecuciones.Models
         [Display(Name = "Fallador")]
         public int FalladorId { get; set; }
 
-        [Required(ErrorMessage = "No ha seleccionado ningun archivo")]
-        [Display(Name = "Archivos PDF")]
         [NotMapped]
         public IFormFile ProcesoPdf { get; set; }
         public string AnexosProceso { get; set; }

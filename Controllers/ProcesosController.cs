@@ -120,7 +120,8 @@ namespace Ejecuciones.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProcesoId,DespachoId,FechaProceso,RadicadoProceso,FalladorId,AnexosSolicitud,CuadernosProceso,FoliosProceso,EstadoProcesoId")] Proceso proceso)
+        //public async Task<IActionResult> Edit(int id, [Bind("ProcesoId,DespachoId,FechaProceso,RadicadoProceso,FalladorId,AnexosSolicitud,CuadernosProceso,FoliosProceso,EstadoProcesoId")] Proceso proceso)
+        public async Task<IActionResult> Edit(int id, Proceso proceso)
         {
             if (id != proceso.ProcesoId)
             {
@@ -131,6 +132,20 @@ namespace Ejecuciones.Controllers
             {
                 try
                 {
+                    if (proceso.ProcesoPdf != null)
+                    {
+                        string folder = @"procesos\";
+                        UploadFiles uploadFiles = new UploadFiles();
+                        proceso.AnexosProceso = await uploadFiles.UploadPDF(webHostEnvironment, folder, proceso.ProcesoPdf);
+                    }
+                    else
+                    {
+                        ViewData["DespachoId"] = new SelectList(_context.Despacho, "DespachoId", "NombreDespacho", proceso.DespachoId);
+                        ViewData["EstadoProcesoId"] = new SelectList(_context.EstadoProceso, "EstadoProcesoId", "NombreEstadoProceso", proceso.EstadoProcesoId);
+                        ViewData["FalladorId"] = new SelectList(_context.Fallador, "FalladorId", "JuzgadoFallador", proceso.FalladorId);
+                        return View(proceso);
+                    }
+
                     proceso.FechaProceso = DateTime.Now;
                     //solicitud.DespachoId = (_context.Despacho, "DspachoId", "NombreDespacho" = 'SECRETARIA CENTRO DE SERVICIOS');
                     proceso.DespachoId = 5;

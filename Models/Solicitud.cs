@@ -41,8 +41,6 @@ namespace Ejecuciones.Models
         [Display(Name = "Apellido(s)")]
         public string ApellidosCondenado { get; set; }
 
-        [Required(ErrorMessage = "No ha seleccionado ningun archivo")]
-        [Display(Name = "Archivos PDF")]
         [NotMapped]
         public IFormFile SolicitudPdf { get; set; }
         public string AnexosSolicitud { get; set; }
