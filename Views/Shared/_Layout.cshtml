@@ -8,19 +8,18 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/Bootstrap.yeti.css"  />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background-color: #236093 !important;">
             <div class="container" style="color:white !important;">
-                <img src="~/Views/Images/logorama.png" />
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CSA de los JEPMS Manizales</a>
-                <button class="navbar-toggler"  type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                <img src="images\logorama.png" />
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div class="navbar-collapse collapsed-sm-inline justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Datos Maestros
@@ -37,6 +36,7 @@
                                 <a class="dropdown-item text-white-50" asp-area="" asp-controller="TipoSolicitudes" asp-action="Index">Tipos Solicitud</a>
                                 <a class="dropdown-item text-white-50" asp-area="" asp-controller="UsuariosRoles" asp-action="Index">Usuarios y Roles</a>
                             </div>
+                        </li>
 
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Solicitudes" asp-action="Index">Registrar Solicitud</a>
@@ -53,27 +53,61 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">Privacidad</a>
                         </li>
-
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted" ng-style="">
-        <div class="container">
-            &copy; 2021 - CSA Manizales - <a asp-area="" asp-controller="Home" asp-action="Privacidad">Privacidad</a>
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+
+    <footer class="border-top footer text-muted">
+        <div class=" container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h5>Enlaces</h5>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="https://www.ramajudicial.gov.co/">Rama Judicial</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="http://190.217.24.24/ramajudicialmanizales/">Página Seccional Caldas</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="http://190.217.24.112/sinsac/index.php?controller=menu&action=mod_directorio">Directorio Judicial Seccional Caldas</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 footer-contact">
+                    <h5>Ubicación</h5>
+                    <p>
+                        Calle 27 # 17-21 Torre Baja Piso 4 Oficina 401<br>
+                        Manizales, Caldas <br><br>
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-6 footer-contact">
+                    <h5>Contacto</h5>
+                    <p>
+                        <strong>Teléfono:</strong> 8721752 - 319 399 4778<br>
+                        <strong>Email:</strong> cserepma@cendoj.ramajudicial.gov.co<br>
+                    </p>
+                </div>
+             </div>
+        </div>
+        
+        <div class=" container-fluid"> 
+            <div class=" row">
+                <p>
+                    &copy; 2021 - CSA Manizales - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacidad</a><br>
+                    Designed by <a href="https://bootstrapmade.com/">BootstrapMade - </a>
+                    Ingeniera Nyllireth Betancur Aguirre
+                </p>
+            </div>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
+
 </html>
