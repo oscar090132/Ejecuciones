@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - CSA - JEPMS</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/Bootstrap.yeti.css"  />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/Bootstrap.yeti.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 
 <body>
     <header>
+
+        <a class="navbar-brand" href="index.html"> <img src="images/logorama.png" alt="Logo" style="width:10em; height:3em"> </a>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background-color: #236093 !important;">
             <div class="container" style="color:white !important;">
-                <img src="images\logorama.png" />
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -25,16 +26,16 @@
                                 Datos Maestros
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item text-white-50" asp-area="" asp-controller="CargoEmpleados" asp-action="Index">Cargo Empleados</a>
-                                <a class="dropdown-item text-white-50" asp-area="" asp-controller="Departamentos" asp-action="Index">Departamentos</a>
-                                <a class="dropdown-item text-white-50" asp-area="" asp-controller="Despachos" asp-action="Index">Despachos</a>
-                                <a class="dropdown-item text-white-50" asp-area="" asp-controller="EstadoProcesos" asp-action="Index">Estados Proceso</a>
-                                <a class="dropdown-item text-white-50" asp-area="" asp-controller="EstadoSolicitudes" asp-action="Index">Estados Solicitud</a>
-                                <a class="dropdown-item text-white-50" asp-area="" asp-controller="Falladores" asp-action="Index">Falladores</a>
-                                <a class="dropdown-item text-white-50" asp-area="" asp-controller="Funcionarios" asp-action="Index">Funcionarios</a>
-                                <a class="dropdown-item text-white-50" asp-area="" asp-controller="Municipios" asp-action="Index">Municipios</a>
-                                <a class="dropdown-item text-white-50" asp-area="" asp-controller="TipoSolicitudes" asp-action="Index">Tipos Solicitud</a>
-                                <a class="dropdown-item text-white-50" asp-area="" asp-controller="UsuariosRoles" asp-action="Index">Usuarios y Roles</a>
+                                <a class="dropdown-item text-white" asp-area="" asp-controller="CargoEmpleados" asp-action="Index">Cargo Empleados</a>
+                                <a class="dropdown-item text-white" asp-area="" asp-controller="Departamentos" asp-action="Index">Departamentos</a>
+                                <a class="dropdown-item text-white" asp-area="" asp-controller="Despachos" asp-action="Index">Despachos</a>
+                                <a class="dropdown-item text-white" asp-area="" asp-controller="EstadoProcesos" asp-action="Index">Estados Proceso</a>
+                                <a class="dropdown-item text-white" asp-area="" asp-controller="EstadoSolicitudes" asp-action="Index">Estados Solicitud</a>
+                                <a class="dropdown-item text-white" asp-area="" asp-controller="Falladores" asp-action="Index">Falladores</a>
+                                <a class="dropdown-item text-white" asp-area="" asp-controller="Funcionarios" asp-action="Index">Funcionarios</a>
+                                <a class="dropdown-item text-white" asp-area="" asp-controller="Municipios" asp-action="Index">Municipios</a>
+                                <a class="dropdown-item text-white" asp-area="" asp-controller="TipoSolicitudes" asp-action="Index">Tipos Solicitud</a>
+                                <a class="dropdown-item text-white" asp-area="" asp-controller="UsuariosRoles" asp-action="Index">Usuarios y Roles</a>
                             </div>
                         </li>
 
@@ -59,48 +60,60 @@
             </div>
         </nav>
     </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
 
-    <main role="main" class="pb-3">
-        @RenderBody()
-    </main>
-
-    <footer class="border-top footer text-muted">
-        <div class=" container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 footer-links">
-                    <h5>Enlaces</h5>
-                    <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="https://www.ramajudicial.gov.co/">Rama Judicial</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="http://190.217.24.24/ramajudicialmanizales/">Página Seccional Caldas</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="http://190.217.24.112/sinsac/index.php?controller=menu&action=mod_directorio">Directorio Judicial Seccional Caldas</a></li>
-                    </ul>
+    <footer>
+        <section id="footer">
+            <div class="container">
+                <div class="row text-center text-xs-center text-sm-left text-md-left">
+                    <div class="col-xs-12 col-sm-4 col-md-4">
+                        <h5>Enlaces</h5>
+                        <ul class="list-unstyled quick-links">
+                            <li><a href="#"><i class="fa fa-angle-double-right"></i>Rama Judicial</a></li>
+                            <li><a href="#"><i class="fa fa-angle-double-right"></i>Seccional Caldas</a></li>
+                            <li><a href="#"><i class="fa fa-angle-double-right"></i>Directorio Judicial Seccional Caldas</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4">
+                        <h5>Ubicación</h5>
+                        <ul class="list-unstyled quick-links">
+                            <li><a href="#"><i class="fa fa-angle-double-right"></i>Calle 27 # 17-21 Piso 4 Oficina 401 </a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4">
+                        <h5>Contacto</h5>
+                        <ul class="list-unstyled quick-links">
+                            <li><a href="#"><i class="fa fa-angle-double-right"></i><strong>Teléfono: </strong>(57)(6) 8721752</a></li>
+                            <li><a href="#"><i class="fa fa-angle-double-right"></i><strong>Celular: </strong>(57)(319) 399 4778</a></li>
+                            <li><a href= href="mailto:cserepma@cendoj.ramajudicial.gov.co"><i class="fa fa-angle-double-right"></i><strong>Email: </strong>cserepma@cendoj.ramajudicial.gov.co</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-lg-3 col-md-6 footer-contact">
-                    <h5>Ubicación</h5>
-                    <p>
-                        Calle 27 # 17-21 Torre Baja Piso 4 Oficina 401<br>
-                        Manizales, Caldas <br><br>
-                    </p>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                        <ul class="list-unstyled list-inline social text-center">
+                            <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li class="list-inline-item"><a href="#" target="_blank"><i class="fa fa-envelope"></i></a></li>
+                        </ul>
+                    </div>
+                    <hr>
                 </div>
-                <div class="col-lg-3 col-md-6 footer-contact">
-                    <h5>Contacto</h5>
-                    <p>
-                        <strong>Teléfono:</strong> 8721752 - 319 399 4778<br>
-                        <strong>Email:</strong> cserepma@cendoj.ramajudicial.gov.co<br>
-                    </p>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                        <p>Diseño: Ingeniera Nyllireth Betancur Aguirre</p>
+                        <p class="h6">© 2021 - CSA Manizales <a class="text-green ml-2" href="#" target="_blank"></a></p>
+                    </div>
+                    <hr>
                 </div>
-             </div>
-        </div>
-        
-        <div class=" container-fluid"> 
-            <div class=" row">
-                <p>
-                    &copy; 2021 - CSA Manizales - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacidad</a><br>
-                    Designed by <a href="https://bootstrapmade.com/">BootstrapMade - </a>
-                    Ingeniera Nyllireth Betancur Aguirre
-                </p>
             </div>
-        </div>
+        </section>
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

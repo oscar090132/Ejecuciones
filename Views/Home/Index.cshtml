@@ -1,58 +1,70 @@
 ﻿@{
     ViewData["Title"] = "Página Principal";
+
+   
+
+
     <div class="container">
-        <section id="hero">
-            <div class="hero-container">
-                <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
-                    <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+        <div class="jumbotron">
+            <section id="hero">
+                <div class="hero-container">
+                    <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+                        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
 
-                    <div class="carousel-inner" role="listbox">
-                        <!-- Slide 1 -->
-                        <div class="carousel-item active">
-                            <div class="carousel-container">
-                                <div class="carousel-content">
-                                    <h2 class="animate__animated animate__fadeInDown">Bienvenido al Centro de Servicios Administrativos de los JEPMS</h2>
-                                    <p class="animate__animated animate__fadeInUp" style="font-size:15px;">En esta página podrá registrar solicitudes y cargar procesos para reparto, además de consultar la información de los procesos que están siendo vigilados por los Jueces de Ejecución de Penas de la ciudad de Manizales y también obtendrá información acerca de correos electrónicos y teléfonos de contacto.</p>
+                        <div class="carousel-inner" role="listbox">
+                            <!-- Slide 1 -->
+                            <div class="carousel-item active">
+                                <div class="carousel-container">
+                                    <div class="carousel-content">
+                                        <h1 class="animate__animated animate__fadeInDown">Bienvenido al Centro de Servicios Administrativos de los JEPMS</h1>
+                                        <hr />
+                                        <p class="animate__animated animate__fadeInUp" style="font-size:15px;">En esta página podrá registrar solicitudes y cargar procesos para reparto, además de consultar la información de los procesos que están siendo vigilados por los Jueces de Ejecución de Penas de la ciudad de Manizales y también obtendrá información acerca de correos electrónicos y teléfonos de contacto.</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Slide 2 -->
-                        <div class="carousel-item">
-                            <div class="carousel-container">
-                                <div class="carousel-content">
-                                    <h2 class="animate__animated fanimate__adeInDown">Juzgados de Ejecución de Penas y Medidas de Seguridad de Manizales</h2>
-                                    <p class="animate__animated animate__fadeInUp" style="font-size:15px;">Existen tres (3) Juzgados de Ejecución de Penas encargados de vigilar las penas a las personas condenadas, respondiendo peticiones, quejas y reclamos. Para conocer los contactos en cada juzgado ingrese a: </p>
-                                    <a href="Juzgados.html">Información de Contacto</a>
+                            <!-- Slide 2 -->
+                            <div class="carousel-item">
+                                <div class="carousel-container">
+                                    <div class="carousel-content">
+                                        <h1 class="animate__animated fanimate__adeInDown">Juzgados de Ejecución de Penas y Medidas de Seguridad de Manizales</h1>
+                                        <hr />
+                                        <p class="animate__animated animate__fadeInUp" style="font-size:15px;">Existen tres (3) Juzgados de Ejecución de Penas encargados de vigilar las penas a las personas condenadas, respondiendo peticiones, quejas y reclamos. Para conocer los contactos en cada juzgado ingrese a: </p>
+                                        <a class="btn btn-primary btn-lg" href="Juzgados.html" role="button">Información de Contacto</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Slide 3 -->
-                        <div class="carousel-item">
-                            <div class="carousel-container">
-                                <div class="carousel-content">
-                                    <h2 class="animate__animated animate__fadeInDown">Consulta Procesos</h2>
-                                    <p class="animate__animated animate__fadeInUp" style="font-size:15px;">Consulte aquí la información de los procesos que se encuentran o fueron vigilados por los Juzgados de Ejecución de Penas Y Medidas de Seguridad de Manizales</p>
-                                    <a href="https://procesos.ramajudicial.gov.co/jepms/manizalesjepms/conectar.asp" class="btn-get-started animate__animated animate__fadeInUp">Consultar</a>
+                            <!-- Slide 3 -->
+                            <div class="carousel-item">
+                                <div class="carousel-container">
+                                    <div class="carousel-content">
+                                        <h1 class="animate__animated animate__fadeInDown">Consulta Procesos</h1>
+                                        <hr />
+                                        <p class="animate__animated animate__fadeInUp" style="font-size:15px;">Consulte aquí la información de los procesos que se encuentran o fueron vigilados por los Juzgados de Ejecución de Penas Y Medidas de Seguridad de Manizales</p>
+                                        <a class="btn btn-primary btn-lg" href="https://procesos.ramajudicial.gov.co/jepms/manizalesjepms/conectar.asp" role="button">Consultar</a>
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
+
+                        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon icofont-rounded-left" aria-hidden="true"></span>
+                            <span class="sr-only">Anterior</span>
+                        </a>
+
+                        <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon icofont-rounded-right" aria-hidden="true"></span>
+                            <span class="sr-only">Siguiente</span>
+                        </a>
 
                     </div>
-
-                    <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon icofont-rounded-left" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-
-                    <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon icofont-rounded-right" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-
                 </div>
-            </div>
-        </section><!-- End Hero -->
+            </section><!-- End Hero -->
+        </div>
+
+
+        
     </div>
 }
